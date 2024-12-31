@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+	color: white;
+	background-color: black;
+}
+h1,h2,h3,h4,h5 {
+	color: #ff5e9c;
+	font-family: "Verdana", "Helvetica", sans-serif;
+	font-size: 72px;
+	font-weight: bold;
+}
+p {
+	color: #e5dbf7;
+	font-size: 24px;
+}
