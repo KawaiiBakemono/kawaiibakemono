@@ -1,15 +1,45 @@
+@font-face {
+    font-family: 'Yeah But When I Do It';
+    src: url('fonts/yeah_but_when_i_do_it.otf') format('opentype');
+}
 body {
     text-align: center;
 	color: white;
 	background-color: black;
+	font-family: 'DejaVu Sans';
 }
 h1,h2,h3,h4,h5 {
 	color: #ff5e9c;
-	font-family: "Verdana", "Helvetica", sans-serif;
+	font-family: 'Yeah But When I Do It', 'Helvetica', sans-serif;
 	font-size: 72px;
-	font-weight: bold;
 }
 p {
 	color: #e5dbf7;
 	font-size: 24px;
+}
+button {
+	background-color: #51003d;
+	border: none;
+	border-radius: 8px;
+	color: white;
+	display: inline-block;
+	font-size: 16px;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	transition-duration: 0.3s;
+}
+button:hover {
+	background-color: #ff5e9c;
+	color: white;
+}
+div.horizontal-gap-left {
+  float: left;
+  height: 1px;
+  width: 0px;
+}
+div.horizontal-gap-right {
+  float: right;
+  height: 1px;
+  width: 0px;
 }
