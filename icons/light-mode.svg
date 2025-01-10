@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 0.48 0.48"
+   fill="none"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="sun-svgrepo-com.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#333333"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#000000"
+     inkscape:zoom="23.589082"
+     inkscape:cx="7.73663"
+     inkscape:cy="13.141673"
+     inkscape:current-layer="svg8" />
+  <g
+     id="g8"
+     transform="matrix(0.024,0,0,0.024,-0.048,-0.048)">
+    <circle
+       cx="12"
+       cy="12"
+       r="4.2441807"
+       fill="#222222"
+       id="circle1"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.06105;stroke-opacity:1" />
+    <path
+       d="M 12,5 V 3"
+       stroke="#222222"
+       stroke-width="2"
+       stroke-linecap="round"
+       id="path1"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1" />
+    <path
+       d="M 12,21 V 19"
+       stroke="#222222"
+       stroke-width="2"
+       stroke-linecap="round"
+       id="path2"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1" />
+    <path
+       d="M 16.9498,7.04996 18.364,5.63574"
+       stroke="#222222"
+       stroke-width="2"
+       stroke-linecap="round"
+       id="path3"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1" />
+    <path
+       d="M 5.63608,18.3644 7.05029,16.9502"
+       stroke="#222222"
+       stroke-width="2"
+       stroke-linecap="round"
+       id="path4"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1" />
+    <path
+       d="m 19,12 h 2"
+       stroke="#222222"
+       stroke-width="2"
+       stroke-linecap="round"
+       id="path5"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1" />
+    <path
+       d="M 3,12 H 5"
+       stroke="#222222"
+       stroke-width="2"
+       stroke-linecap="round"
+       id="path6"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1" />
+    <path
+       d="m 16.9498,16.95 1.4142,1.4143"
+       stroke="#222222"
+       stroke-width="2"
+       stroke-linecap="round"
+       id="path7"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1" />
+    <path
+       d="M 5.63608,5.63559 7.05029,7.0498"
+       stroke="#222222"
+       stroke-width="2"
+       stroke-linecap="round"
+       id="path8"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1" />
+  </g>
+</svg>

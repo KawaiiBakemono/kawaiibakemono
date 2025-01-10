@@ -1,0 +1,43 @@
+<header>
+    <nav>
+        <audio id="light-mode-audio">
+            <source src="/audio/think_fast_chucklenuts.ogg" type="audio/ogg">
+            Your browser does not support the audio element. Womp womp.
+        </audio>
+        <script script-type="text/javascript">
+            function validate() {
+                if (document.getElementById("light-mode").checked) {
+                    console.log("Changing to light mode!")
+                    document.getElementById("scout").classList.toggle("show");
+                    document.getElementById("light-mode-audio").play();
+                    setTimeout(() => {
+                        document.getElementById("fullover").classList.toggle("show");
+                    }, "1300");
+                    setTimeout(() => {
+                        document.getElementById("light-mode").checked = false
+                        document.getElementById("scout").classList.toggle("show");
+                        document.getElementById("fullover").classList.toggle("fadeout");
+                    }, "4000");
+                }
+            }
+        </script>
+        <ul>
+            <li><img class="nav-icon-left" src="/icons/cat.svg" alt="Meow!"></li>
+            <li><img style="height: 28px;" src="/icons/light-mode.svg" alt="Light Mode"></li>
+            <label class="switch" >
+                <input id="light-mode" type="checkbox" onclick="validate()">
+                <span class="slider round"></span>
+            </label>
+            <!-- Main pages -->
+            <li><button class="pointer" type="button" onclick="location.href='/'">Home</button></li>
+            <li><button class="pointer" type="button" onclick="location.href='/about-me'">About Me</button></li>
+            <li><button class="pointer" type="button" onclick="location.href='/gallery'">Gallery</button></li>
+            <li><button class="pointer" type="button" onclick="location.href='/contact'">Contact</button></li>
+            <!-- Note that these icons are ordered right-to-left because of "inline-end" -->
+            <li><img class="nav-icon-right" src="/icons/bluesky.svg" alt="Bluesky"></li>
+            <li><img class="nav-icon-right" src="/icons/github.svg" alt="GitHub"></li>
+            <li><img class="nav-icon-right" src="/icons/email.svg" alt="Email Me!"></li>
+            <li><img class="nav-icon-right" src="/icons/heart.svg" alt="Support my work!"></li>
+        </ul>
+    </nav>
+</header>

@@ -1,45 +1,182 @@
+/* Custom Fonts */
 @font-face {
-    font-family: 'Yeah But When I Do It';
-    src: url('fonts/yeah_but_when_i_do_it.otf') format('opentype');
+	font-family: 'Yeah But When I Do It';
+    src: url('/fonts/yeah_but_when_i_do_it.otf') format('opentype');
+}
+/* Other shit */
+* {
+	color: #f8f8ff;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+img.nav-icon-left {
+	float: inline-start;
+	width: 28px;
+	height: 28px;
+}
+img.nav-icon-right {
+	filter: brightness(100%);
+	float: inline-end;
+	width: 28px;
+	height: 28px;
+	margin-left: 16px;
+	cursor: pointer;
+}
+img.nav-icon-right:hover {
+	float: inline-end;
+	width: 28px;
+	height: 28px;
+	margin-left: 16px;
+	/* filter: hue-rotate(211%);
+	filter: saturate(99%); */
+	filter: brightness(53%);
+	/* opacity: 0.1; */
+	transition: filter 0.1s;
 }
 body {
-    text-align: center;
-	color: white;
-	background-color: black;
+	background-color: #000000;
 	font-family: 'DejaVu Sans';
+	font-size: 24px;
+	margin: 16px;
+    text-align: center;
 }
-h1,h2,h3,h4,h5 {
+h1 {
 	color: #ff5e9c;
 	font-family: 'Yeah But When I Do It', 'Helvetica', sans-serif;
 	font-size: 72px;
-}
-p {
-	color: #e5dbf7;
-	font-size: 24px;
+	margin-top: 128px;
+	margin-bottom: 64px;
 }
 button {
 	background-color: #51003d;
 	border: none;
 	border-radius: 8px;
-	color: white;
 	display: inline-block;
 	font-size: 16px;
-	padding: 15px 32px;
+	padding: 16px 32px;
 	text-align: center;
 	text-decoration: none;
 	transition-duration: 0.3s;
 }
 button:hover {
 	background-color: #ff5e9c;
-	color: white;
 }
-div.horizontal-gap-left {
-  float: left;
-  height: 1px;
-  width: 0px;
+li {
+	display: inline;
 }
-div.horizontal-gap-right {
-  float: right;
-  height: 1px;
-  width: 0px;
+
+/* ==== TOGGLE BUTTONS ==== */
+
+/* The switch - the box around the slider */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 48px;
+	height: 28px;
 }
+/* Hide default HTML checkbox */
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+/* The slider */
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #51003d;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 20px;
+	width: 20px;
+	left: 6px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+input:checked + .slider {
+	background-color: #ff5e9c;
+}
+input:focus + .slider {
+	box-shadow: 0 0 1px #ff5e9c;
+}
+input:checked + .slider:before {
+	-webkit-transform: translateX(16px);
+	-ms-transform: translateX(16px);
+	transform: translateX(16px);
+}
+/* Rounded sliders */
+.slider.round {
+	border-radius: 26px;
+}
+.slider.round:before {
+	border-radius: 50%;
+}
+
+/* (A) FULLSCREEN OVERLAY */
+#fullover {
+	/* (A1) COVER ENTIRE WINDOW */
+	position: fixed;
+	top: 0; left: 0; z-index: 999;
+	width: 100vw; height: 100vh;
+
+	/* (A2) BACKGROUND */
+	background: #ffffff;
+	backdrop-filter: blur(5px);
+
+	/* (A3) CENTER CONTENT */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	/* (A4) HIDE OVERLAY BY DEFAULT */
+	opacity: 0; visibility: hidden;
+	transition: opacity 0.1s;
+}
+/* (B) SHOW OVERLAY */
+#fullover.show {
+	visibility: visible;
+	opacity: 1; 
+}
+#fullover.fadeout {
+	opacity: 0; 
+	transition: visibility 6s, opacity 6s;
+	visibility:hidden;
+}
+
+
+#scout {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0;
+	position: fixed;
+	width: 50%;
+	visibility: hidden;
+	z-index: 1;
+}
+#scout.show {
+	opacity: 1;
+	visibility: visible;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+/* ==== CURSORS ==== */
+
+.pointer { cursor: pointer; }
