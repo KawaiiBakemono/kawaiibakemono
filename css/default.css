@@ -142,6 +142,7 @@ input:checked + .slider:before {
 	/* (A4) HIDE OVERLAY BY DEFAULT */
 	opacity: 0; visibility: hidden;
 	transition: opacity 0.1s;
+	pointer-events: none;
 }
 /* (B) SHOW OVERLAY */
 #fullover.show {
@@ -152,6 +153,12 @@ input:checked + .slider:before {
 	opacity: 0; 
 	transition: visibility 6s, opacity 6s;
 	visibility:hidden;
+}
+
+@keyframes light-moded {
+	0%, 100% { opacity: 0; visibility: hidden; }
+	5% { opacity: 1; visibility: visible;}
+	30% { opacity: 1; visibility: visible;}
 }
 
 

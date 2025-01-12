@@ -1,26 +1,26 @@
 <header>
-    <nav>
-        <audio id="light-mode-audio">
-            <source src="/audio/think_fast_chucklenuts.ogg" type="audio/ogg">
-            Your browser does not support the audio element. Womp womp.
-        </audio>
-        <script script-type="text/javascript">
-            function validate() {
-                if (document.getElementById("light-mode").checked) {
-                    console.log("Changing to light mode!")
+    <audio id="light-mode-audio">
+        <source src="/audio/think_fast_chucklenuts.ogg" type="audio/ogg">
+        Your browser does not support the audio element. Womp womp.
+    </audio>
+    <script script-type="text/javascript">
+        function validate() {
+            if (document.getElementById("light-mode").checked) {
+                console.log("Changing to light mode!")
+                document.getElementById("scout").classList.toggle("show");
+                document.getElementById("light-mode-audio").play();
+                setTimeout(() => {
+                    document.getElementById("fullover").classList.toggle("show");
+                }, "1300");
+                setTimeout(() => {
+                    document.getElementById("light-mode").checked = false
                     document.getElementById("scout").classList.toggle("show");
-                    document.getElementById("light-mode-audio").play();
-                    setTimeout(() => {
-                        document.getElementById("fullover").classList.toggle("show");
-                    }, "1300");
-                    setTimeout(() => {
-                        document.getElementById("light-mode").checked = false
-                        document.getElementById("scout").classList.toggle("show");
-                        document.getElementById("fullover").classList.toggle("fadeout");
-                    }, "4000");
-                }
+                    document.getElementById("fullover").classList.toggle("fadeout");
+                }, "4000");
             }
-        </script>
+        }
+    </script>
+    <nav>
         <ul>
             <li><img class="nav-icon-left" src="/icons/cat.svg" alt="Meow!"></li>
             <li><img style="height: 28px;" src="/icons/light-mode.svg" alt="Light Mode"></li>
