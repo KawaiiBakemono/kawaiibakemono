@@ -5,18 +5,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Imports-->
 		<link rel="stylesheet" type="text/css" href="/css/default.css">
+		<link rel="stylesheet" type="text/css" href="/css/light-mode.css">
+		<link rel="stylesheet" type="text/css" href="/css/tooltips.css">
+		<link rel="stylesheet" type="text/css" href="/css/glitch.css">
 		<!-- Scripts -->
 		<script src="/js/htmx.min.js"></script>
+		<script src="/js/background.js" defer></script>
+		<link rel="icon" type="image/svg" href="/icons/cat.svg">
 		<title>Home - KawaiiBakemono</title>
 	</head>
 	<body>
-		<!-- <div id="overlay"></div> -->
-		<div id="fullover"></div>
-		<img id="scout" class="Scout" src="/img/Scout.png" alt="">
+		<div id="moveable-background" background-image='url("/img/dragon_fountain.jpg")'></div>
 		<div hx-get="/html/template-header.html" hx-trigger="load"></div>
 		<main>
-			<h1>KawaiiBakemono</h1>
-        	<p>A 2D artist that draws all things cute, quirky, and surreal!</p>
+			<h1 class="glitch" data-text="KawaiiBakemono">KawaiiBakemono</h1>
+        	<h2>A 2D artist that draws all things cute, quirky, and surreal!</h2>
 		</main>
 	</body>
 </html>

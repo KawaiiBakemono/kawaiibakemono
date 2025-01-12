@@ -1,43 +1,50 @@
 <header>
+    <!-- "Light" Mode stuff -->
     <audio id="light-mode-audio">
         <source src="/audio/think_fast_chucklenuts.ogg" type="audio/ogg">
         Your browser does not support the audio element. Womp womp.
     </audio>
-    <script script-type="text/javascript">
-        function validate() {
-            if (document.getElementById("light-mode").checked) {
-                console.log("Changing to light mode!")
-                document.getElementById("scout").classList.toggle("show");
-                document.getElementById("light-mode-audio").play();
-                setTimeout(() => {
-                    document.getElementById("fullover").classList.toggle("show");
-                }, "1300");
-                setTimeout(() => {
-                    document.getElementById("light-mode").checked = false
-                    document.getElementById("scout").classList.toggle("show");
-                    document.getElementById("fullover").classList.toggle("fadeout");
-                }, "4000");
-            }
-        }
-    </script>
+    <script src="/js/light-mode.js"></script>
     <nav>
-        <ul>
-            <li><img class="nav-icon-left" src="/icons/cat.svg" alt="Meow!"></li>
-            <li><img style="height: 28px;" src="/icons/light-mode.svg" alt="Light Mode"></li>
-            <label class="switch" >
-                <input id="light-mode" type="checkbox" onclick="validate()">
-                <span class="slider round"></span>
-            </label>
-            <!-- Main pages -->
-            <li><button class="pointer" type="button" onclick="location.href='/'">Home</button></li>
-            <li><button class="pointer" type="button" onclick="location.href='/about-me'">About Me</button></li>
-            <li><button class="pointer" type="button" onclick="location.href='/gallery'">Gallery</button></li>
-            <li><button class="pointer" type="button" onclick="location.href='/contact'">Contact</button></li>
-            <!-- Note that these icons are ordered right-to-left because of "inline-end" -->
-            <li><img class="nav-icon-right" src="/icons/bluesky.svg" alt="Bluesky"></li>
-            <li><img class="nav-icon-right" src="/icons/github.svg" alt="GitHub"></li>
-            <li><img class="nav-icon-right" src="/icons/email.svg" alt="Email Me!"></li>
-            <li><img class="nav-icon-right" src="/icons/heart.svg" alt="Support my work!"></li>
+        <!-- Toggle for "Light" Mode -->
+        <ul class="unselectable">
+            <li><img class="nav-icon" src="/icons/light-mode.svg" alt="Light Mode"></li>
+            <li><label class="switch bottom" tooltip='Enable "Light" Mode' tooltip-position="bottom">
+                <input id="light-mode-toggle" type="checkbox" onclick="enableLightMode()">
+                <span class="slider"></span>
+            </label></li>
+        </ul>
+        <!-- Main page navigation buttons -->
+        <ul class="unselectable">
+            <li><button class="tilt" type="button" onclick="location.href='/'">Home</button></li>
+            <li><button class="tilt-negative" type="button" onclick="location.href='/about-me'">About Me</button></li>
+            <li><button class="tilt" type="button" onclick="location.href='/gallery'">Gallery</button></li>
+            <li><button class="tilt-negative" type="button" onclick="location.href='/'">Contact</button></li>
+        </ul>
+        <!-- Icons for external links -->
+        <ul class="unselectable">
+            <li>
+                <a class="bottom" tooltip="Support my work!" tooltip-position="bottom" href="" target="_blank">
+                    <img class="nav-icon-clickable" src="/icons/heart.svg" alt="Support Link">
+                </a>
+            </li>
+            <li>
+                <a class="bottom" tooltip="Email me!" tooltip-position="bottom" href="mailto:contact@kawaiibakemono.art" target="_blank">
+                    <img class="nav-icon-clickable" src="/icons/email.svg" alt="Email Link">
+                </a>
+            </li>
+            <li>
+                <a class="bottom" tooltip="GitHub" tooltip-position="bottom" href="https://github.com/KawaiiBakemono" target="_blank">
+                    <img class="nav-icon-clickable" src="/icons/github.svg" alt="GitHub Link">
+                </a>
+            </li>
+            <li>
+                <a class="bottom" tooltip="Bluesky" tooltip-position="bottom" href="https://bsky.app/profile/kawaiibakemono.bsky.social" target="_blank">
+                    <img class="nav-icon-clickable" src="/icons/bluesky.svg" alt="Bluesky Link">
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
+<div id="light-mode-overlay"></div>
+<img id="scout" class="Scout" src="/img/Scout.png" alt="">

@@ -1,0 +1,164 @@
+:root {
+	--primary-accent-color: #ff5e9c;
+	--secondary-accent-background: #51003d;
+    --tooltip-background: #3a092e;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: 'Elizabeth Handwriting';
+	src: url('/fonts/elizabeth-handwriting-medium.ttf') format('truetype');
+}
+
+/* Tooltip Animations */
+
+@keyframes odsoky {
+    0% { transform: translateY(6px); }
+	100%{ transform: translateY(0px); }
+}
+
+[tooltip] {
+    position: relative;
+    text-decoration: none;
+
+    &::after,
+    &::before {
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        transition: transform 200ms ease-in-out, opacity 200ms, visibility 200ms;
+        z-index: 99;
+    }
+
+    &::before {
+        content: attr(tooltip);
+        background: var(--tooltip-background);
+        font-size: 28px;
+        font-family: 'Elizabeth Handwriting';
+        padding: 6px;
+        padding-left: 12px;
+        padding-right: 12px;
+        border-radius: 12px;
+        white-space: nowrap;
+        pointer-events: none;
+    }
+
+    &::after {
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        content: '';
+    }
+
+    &:hover::after,
+    &:hover::before {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0px);
+        animation: odsoky 1s ease-in-out infinite alternate;
+    }
+}
+
+[tooltip].top {
+    &::before,
+	&::after {
+        transform: translateY(10px);
+	}
+	
+	&:hover::after,
+	&:hover::before {
+		transform: translateY(0px);
+	}
+}
+
+[tooltip].bottom {
+	&::after {
+		transform: translateY(-10px);
+	}
+	
+	&:hover::before {
+		transform: translateY(0px);
+	}
+}
+
+[tooltip].left {
+    &::before,
+    &::after {
+        transform: translateX(0px);
+    }
+    
+    &:hover::after,
+    &:hover::before {
+        transform: translateX(-10px);
+    }
+}
+
+[tooltip].right {
+	&::before,
+	&::after {
+		transform: translateX(0px);
+	}
+	
+	&:hover::after,
+	&:hover::before {
+		transform: translateX(10px);
+	}
+}
+
+
+/* Top Tooltip */
+[tooltip][tooltip-position="top"]::before {
+	bottom: 100%;
+	left: -130%;
+	margin-bottom: 10px;
+}
+[tooltip][tooltip-position="top"]::after {
+	border-top-color: var(--tooltip-background);
+	border-bottom: none;
+	bottom: 101%;
+	left: calc(50% - 6px);
+	margin-bottom: 4px;
+}
+
+/* Bottom Tooltip */
+[tooltip][tooltip-position="bottom"]::before {
+	top: 100%;
+	left: calc(width / 2);
+    /* margin-left: 10px; */
+	margin-top: 10px;
+}
+[tooltip][tooltip-position="bottom"]::after {
+	border-bottom-color: var(--tooltip-background);
+	border-top: none;
+	top: 100%;
+	left: 50%;
+	margin-top: 4px;
+}
+
+/* Left Tooltip */
+[tooltip][tooltip-position="left"]::before {
+	top: -12%;
+	right: 100%;
+	margin-right: 10px;
+}
+[tooltip][tooltip-position="left"]::after {
+	border-left-color: var(--tooltip-background);
+	border-right: none;
+	top: calc(50% - 3px);
+	right: 100%;
+	margin-top: -6px;
+	margin-right: 4px;
+}
+
+/* Right Tooltip */
+[tooltip][tooltip-position="right"]::before {
+	top: -5%;
+	left: 100%;
+	margin-left: 10px;
+}
+[tooltip][tooltip-position="right"]::after {
+	border-right-color: var(--tooltip-background);
+	border-left: none;
+	top: calc(50% - 6px);
+	left: calc(100% + 4px);
+}

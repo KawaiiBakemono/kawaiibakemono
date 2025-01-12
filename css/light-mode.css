@@ -1,0 +1,51 @@
+/* ==== FULLSCREEN OVERLAY ==== */
+
+#light-mode-overlay {
+	/* Cover entire window */
+	position: fixed;
+	top: 0; left: 0; z-index: 999;
+	width: 100vw; height: 100vh;
+
+	/* Background */
+	background: #ffffff;
+	backdrop-filter: blur(5px);
+
+	/* Center content */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	/* Hide overlay by default */
+	opacity: 0; 
+	pointer-events: none;
+}
+/* Showing the overlay */
+#light-mode-overlay.show {
+	animation: fade-in 0.05s forwards, fade-out 5s 2s forwards;
+	transition-delay: 0s;
+}
+
+@keyframes fade-in {
+	100% { opacity: 1; }
+}
+  
+@keyframes fade-out {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+/* ==== SCOUT ==== */
+#scout {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0;
+	position: fixed;
+	width: 50%;
+	visibility: hidden;
+	z-index: 2;
+}
+#scout.show {
+	opacity: 1;
+	visibility: visible;
+}
