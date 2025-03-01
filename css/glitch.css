@@ -14,7 +14,6 @@ h1 {
 
 .glitch {
     flex: 1;
-    color: #ff5e9c;
     text-align: center;
     transform: scaleX(var(--scale, 1));
     /* animation: glitch-p 11s infinite alternate; */
@@ -40,8 +39,8 @@ h1 {
         /* this helps to get rid of pixelization */
         filter: drop-shadow(0 0 transparent);
 
-        text-shadow: calc(var(--left) * -3em) 0 0.02em #5900ff,
-            calc(var(--left) * -6em) 0 0.02em #ff19c5;
+        text-shadow: calc(var(--left) * -3em) 0 0.02em #47d56b,
+            calc(var(--left) * -6em) 0 0.02em #bb00c9;
 
         background-color: var(--background);
         clip-path: polygon(

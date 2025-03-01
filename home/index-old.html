@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Imports-->
+		<link rel="stylesheet" type="text/css" href="/css/default.css">
+		<link rel="stylesheet" type="text/css" href="/css/light-mode.css">
+		<link rel="stylesheet" type="text/css" href="/css/tooltips.css">
+		<link rel="stylesheet" type="text/css" href="/css/glitch.css">
+		<!-- Scripts -->
+		<!-- <script src="/js/default.js" defer></script> -->	
+		<script src="/js/background.js" defer></script>
+		<script src="/js/text_scramble.js" defer></script>
+		<script src="/js/htmx.min.js"></script>
+		<!-- Fonts -->
+		<link rel="preload" href="/fonts/Yeah_But_When_I_Do_It.otf" as="font" type="font/otf" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/Sedgwick_Ave_Display.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/Elizabeth_Handwriting.otf" as="font" type="font/otf" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/Qwigley.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+		<!-- Tab Stuff -->
+		<link rel="icon" type="image/svg" href="/icons/cat.svg">
+		<title>Home - KawaiiBakemono</title>
+	</head>
+	<body>
+		<div id="moveable-background"></div>
+		<div hx-get="/html/template-header.html" hx-trigger="load" defer></div>
+		<main>
+			<div class="spacer"></div>
+			<!-- Page Title -->
+			<div class="homepage-title part-ab-container">
+				<h1 id="part-a">Hi!</h1><h1 id="part-b">I'm</h1>
+			</div><div id="title-container">
+				<h1 id="part-c" class="neon-text homepage-title" data-text="Kathryn Beam">Kathryn Beam</h1>
+			</div><div>
+				<h1 id="part-d" class="homepage-title">I am . . .</h1>
+			</div>
+			<!-- <div><img class="arrow-down" src="/icons/arrow-down.svg" alt="Down Arrow"></div> -->
+			<div></div>
+			<!-- Artist -->
+			<div class="container">
+				<img class="showcase-img-square" src="/img/Nai-00.png" alt="Nai-00">
+				<div class="sub-container">
+					<h2 class="neon-text">An ARTIST</h2>
+					<p>8+ years experience drawing digitally, 11+ years including traditional</p>
+				</div>
+			</div>
+			<div class="container">
+				<div class="sub-container">
+					<h2 class="neon-text">A Programmer</h2>
+					<p>Self-taught programming in languages such as Python, Shell, GDScript, JavaScript, and others.</p>
+				</div>
+				<img class="showcase-img-square" src="/img/programming_demo.png" alt="Python code">
+			</div>
+			<div class="container">
+				<img class="showcase-img-16by9" src="/img/gamedev_demo.png" alt="Godot engine demo">
+				<div class="sub-container">
+					<h2 class="neon-text">A Game Developer</h2>
+					<p>I have a few WIP projects, as well as being listed in the credits for my contributions to
+						<a href="https://dreamingcassette.itch.io/waking-dreams-episode-i-nightmares-of-life" target="_blank"> Waking Dreams: Nightmares of Life</a>
+					</p>
+				</div>
+			</div>
+			<div class="container">
+				<div class="sub-container">
+					<h2 class="neon-text">A Modder</h2>
+					<p>I enjoy modding games like Terraria and Minecraft.
+						<a href="https://www.planetminecraft.com/texture-pack/voxilla/" target="_blank"> Voxilla</a>
+						is a resourcepack I made for Minecraft that's been in active development for over 3 years
+					</p>
+				</div>
+				<img class="showcase-img-16by9" src="/img/preview-lily_pads.png" alt="Voxilla showcase">
+			</div>
+			<!-- Programmer -->
+			<!-- TODO: Create typewriter effect for the text -->
+		</main>
+	</body>
+</html>

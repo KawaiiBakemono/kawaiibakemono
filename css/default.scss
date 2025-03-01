@@ -1,0 +1,503 @@
+:root {
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+$text-color: #f8f8ff;
+$primary-accent-color: #ff5e9c;
+$secondary-accent-color: #51003d;
+$link-hover: #ff90ba;
+$neon-glow-color: #ff5e9c;
+$neon-dim-color: #fff0f670;
+$semitrans-volume: #e732ba33;
+$semitrans-volume-hover: #ff22bd50;
+
+// ==== CUSTOM FONTS ====
+
+@font-face {
+	font-family: 'Yeah But When I Do It';
+    src: url('/fonts/Yeah_But_When_I_Do_It.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Elizabeth Handwriting';
+	src: url('/fonts/Elizabeth_Handwriting.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Sedgwick Ave Display';
+	src: url('/fonts/Sedgwick_Ave_Display.ttf') format('truetype');
+}
+
+// ====== DEBUG ======
+
+// This is commented out for release, this is just to help me develop stuffs uwu
+
+// .grid-line {
+//     border: 1px dashed #ffffff80;
+// }
+
+// ====== UNDER CONSTRUCTION NOTICE ======
+
+.construction-notice {
+    align-items: center;
+    text-align: center;
+    
+    h1 {
+        font-size: 70px;
+        margin: 50px;
+        font-family: 'Sedgwick Ave Display', sans-serif;
+    }
+
+    h2 {
+        font-size: 50px;
+        text-align: center;
+        font-family: 'Elizabeth Handwriting', sans-serif;
+        margin-bottom: 25px;
+    }
+}
+
+// ====== GRID ALIGNMENT ======
+
+.main-wrapper {
+    display: grid;
+    grid-template-columns: repeat(8, 35vw);
+    gap: 2vw;
+    grid-auto-rows: auto;
+    grid-template-areas:
+        "a c c"
+        "b c c";
+    align-items: start;
+    align-content: start;
+}
+
+.scrambled-text {
+    font-size: 70px;
+    font-family: 'Sedgwick Ave Display', sans-serif;
+    color: $neon-dim-color;
+    text-shadow: none;
+    -webkit-text-stroke: 3px $neon-dim-color;
+}
+
+.introduction {
+    grid-area: a;
+    padding-left: 10%;
+    font-family: 'Sedgwick Ave Display', sans-serif;
+
+    h1 {
+        font-size: 50px;
+        margin-bottom: 5px;
+    }
+
+    h2 {
+        font-size: 70px;
+        margin-bottom: 20px;
+    }
+}
+
+.skills {
+    grid-area: b;
+    padding-left: 10%;
+}
+
+.area-c {
+    grid-area: c;
+}
+
+blockquote {
+    border-left: 4px solid $primary-accent-color;
+    padding-left: 20px;
+}
+
+// ====== DEFAULT STUFF ======
+
+* {
+	color: $text-color;
+	font-size: 32px;
+	font-family: 'Elizabeth Handwriting';
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: black;
+    text-align: left;
+}
+
+h2 {
+	font-family: 'Sedgwick Ave Display', sans-serif;
+	font-size: 80px;
+	font-weight: 500;
+}
+
+p {
+	font-size: 32px;
+}
+
+a {
+	font-size: 40px;
+	font-family: 'Elizabeth Handwriting';
+	color: $primary-accent-color;
+	text-decoration-thickness: 1px;
+    
+    &:hover {
+        color: $link-hover;
+    }
+}
+
+// ==== NAVIGATION/HEADER BAR ====
+
+header {
+	display: flex;
+	// position: fixed;
+	z-index: 2;
+	justify-content: space-between;
+	align-items: center;
+	
+    padding: 24px 4%;
+}
+
+nav {
+	justify-content: space-between;
+	align-items: center;
+	display: inline-flex;
+	margin: auto;
+	width: 100%;
+}
+
+li {
+	display: inline-flex;
+	list-style-type: none;
+}
+
+.nav-links {
+    list-style: none;
+    li {
+        display: inline-block;
+        padding: 0px 20px;
+    }
+    li a {
+        transition: all 0.3s ease 0s;
+
+        &:hover {
+            color: $primary-accent-color;
+            text-decoration: underline 1px;
+        }
+    }
+}
+
+// ==== NAVIGATION ICONS ====
+
+img.nav-icon, img.nav-icon-clickable {
+    aspect-ratio: 1 / 1;
+	height: 28px;
+	margin: -2px 4px;
+    align-self: center;
+}
+
+img.nav-icon-clickable {
+	cursor: pointer;
+}
+
+img.nav-icon-clickable:hover, img.nav-icon-clickable:focus-visible {
+	filter: brightness(53%);
+	transition: filter 0.1s;
+}
+
+// ==== BUTTONS ====
+
+button {
+	border: none;
+	border-radius: 10px 50px;
+	cursor: pointer;
+	font-size: 28px;
+	padding: 5px 25px;
+	transition-duration: 0.3s;
+
+    &:hover {
+        transform: scale(110%, 110%);
+        background: $semitrans-volume-hover;
+        color: $link-hover;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+    }
+}
+
+img.button-icon {
+    aspect-ratio: 1 / 1;
+	height: 18px;
+    margin-right: 6px;
+    align-self: baseline;
+}
+
+// Used for external link icons in the navigation bar
+.small-container {
+    position: relative;
+    align-items: center;
+    border-radius: 25px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+button, .small-container {
+    background-color: $semitrans-volume;
+    backdrop-filter: blur(10px);
+}
+
+// ==== FUN STUFF ====
+
+#moveable-background {
+	background-image: url('/img/dragon_fountain-low.jpg'); // this is just the default image
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 40%;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 120%;
+	width: 120%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	filter: blur(5px);
+	transition: all 2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1ms;
+
+	z-index: -1;
+}
+
+.gradient-text {
+	font-family: 'Qwigley', sans-serif;
+	font-size: 96px;
+	letter-spacing: 8px;
+
+	margin-top: 64px;
+	padding-left: 32px;
+
+	background: linear-gradient(-90deg, $text-color 0%, $primary-accent-color 75%);
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-fill-color: transparent;
+}
+
+.neon-text {
+	animation: pulsate-neon 2.5s infinite alternate;
+}
+
+
+// ====== MODAL POPUP ======
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: $semitrans-volume;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 15px;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    
+    &:hover, &:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+
+// ==== MODIFIER CLASSES ====
+
+.center {
+	display: block;
+	margin-left: 0 auto;
+	margin-right: 0 auto;
+	width: 50%;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.spacer {
+    margin: 100px 100px;
+}
+
+// ==== TOGGLE BUTTONS ====
+
+// The box around the slider
+.switch {
+	position: relative;
+	top: -10px;
+	width: 48px;
+	height: 28px;
+    input { opacity: 0; width: 0; height: 0; } // Hide default HTML checkbox
+}
+
+.slider {
+	position: absolute;
+    vertical-align: middle;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: $secondary-accent-color;
+	border-radius: 26px;
+	-webkit-transition: .4s;
+	transition: .4s;
+
+    &:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 6px;
+        bottom: 4px;
+        background-color: white;
+        border-radius: 50%;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+}
+
+input:checked + .slider {
+	background-color: $primary-accent-color;
+}
+input:focus + .slider {
+	box-shadow: 0 0 1px $primary-accent-color;
+}
+input:checked + .slider:before {
+	-webkit-transform: translateX(32px);
+	-ms-transform: translateX(32px);
+	transform: translateX(32px);
+}
+
+
+// ==== FULLSCREEN OVERLAY ====
+
+#fullover {
+	// Cover entire window
+	position: fixed;
+	top: 0; left: 0; z-index: 100;
+	width: 100vw; height: 100vh;
+
+	// Background
+	background: black;
+	backdrop-filter: blur(5px);
+
+	// Center content
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	// Hide overlay by default
+	opacity: 0; visibility: hidden;
+	transition: opacity 0.1s;
+	pointer-events: none;
+}
+// Showing the overlay
+#fullover.show {
+	visibility: visible;
+	opacity: 1;
+}
+
+
+// ==== TOOLTIPS ====
+
+.icon-tooltip {
+    font-size: 32px;
+    color: $text-color;
+    text-decoration: none;
+
+    display: inline-flex;
+    height: 40px;
+    width: 40px;
+    padding: 4px;
+    align-self: center;
+    border-radius: 25px;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: width 300ms ease-in-out 0s, background-color 300ms linear 200ms;
+
+    &:hover, &:focus-visible {
+        width: calc-size(fit-content, size);
+        position: relative;
+        padding-right: 12px;
+        background-color: $semitrans-volume-hover;
+        transition: width 300ms ease-in-out 0s, background-color 100ms linear 0s;
+    }
+    
+    &:focus-visible {
+        outline: 1px solid $semitrans-volume-hover;
+        outline-offset: 4px;
+    }
+
+    &:active {
+        opacity: 0.9;
+    }
+
+    &::after {
+        content: attr(tooltip);
+        margin-left: 8px;
+        animation: fade-in 600ms linear forwards;
+    }    
+}
+
+// ==== ANIMATIONS ====
+
+// Used for the neon light text effect
+@keyframes pulsate-neon {
+	100% {
+		text-shadow:
+			0 0 1px $text-color,
+			0 0 5px $neon-glow-color,
+			0 0 10px $neon-glow-color,
+			0 0 20px $neon-glow-color,
+			0 0 40px $neon-glow-color;
+	}
+	0% {
+		text-shadow:
+			0 0 2px $text-color,
+			0 0 10px $neon-glow-color,
+			0 0 20px $neon-glow-color,
+			0 0 40px $neon-glow-color,
+			0 0 60px $neon-glow-color;
+	}
+}
+
+@keyframes odsoky {
+    0% { transform: translateY(6px); }
+	100%{ transform: translateY(0px); }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100%   { opacity: 1; }
+}

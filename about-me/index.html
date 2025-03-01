@@ -7,26 +7,25 @@
 		<link rel="stylesheet" type="text/css" href="/css/default.css">
 		<link rel="stylesheet" type="text/css" href="/css/light-mode.css">
 		<link rel="stylesheet" type="text/css" href="/css/tooltips.css">
-		<link rel="stylesheet" type="text/css" href="/css/glitch.css">
 		<!-- Scripts -->
 		<script src="/js/htmx.min.js"></script>
-		<script src="/js/background.js" defer></script>
+		<script src="/js/effects.js" defer></script>
+		<script src="/js/text_scramble.js" defer></script>
+		<!-- Fonts -->
+		<link rel="preload" href="/fonts/Yeah_But_When_I_Do_It.otf" as="font" type="font/otf" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/Sedgwick_Ave_Display.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/Elizabeth_Handwriting.otf" as="font" type="font/otf" crossorigin="anonymous">
+		<!-- Tab Stuff -->
 		<link rel="icon" type="image/svg" href="/icons/cat.svg">
 		<title>About Me - KawaiiBakemono</title>
 	</head>
 	<body>
-		<div id="moveable-background" background-image='url("/img/dragon_fountain.jpg")'></div>
+		<div id="moveable-background"></div>
 		<div hx-get="/html/template-header.html" hx-trigger="load"></div>
-		<main>
-			<h1 class="glitch" data-text="About Me">About Me</h1>
-        	<h2>hey there buddy chum pal friend buddy pal chum bud friend fella bruther amigo
-				 pal buddy friend chummy chum chum pal i don't mean to be rude my friend pal home
-				 slice bread slice dawg but i gotta warn ya if u take one more diddly darn step right
-				 there im going to have to diddly darn snap ur neck and wowza wouldn't that be a crummy
-				 juncture, huh? do yuo want that? do wish upon yourself to come into physical experience
-				 with a crummy juncture? because friend buddy chum friend chum pally pal chum friend if
-				 you keep this up well gosh diddly darn i just might have to get not so friendly with u my
-				 friendly friend friend pal friend buddy chum pally friend chum buddy...</h2>
-		</main>
+        <main class="construction-notice">
+            <h1 class="neon-text">About Me</h1>
+            <h2>Oops! Looks like this page is under construction!</h2>
+            <img src="/img/Under_Construction.png" alt="Under Construction!">
+        </main>
 	</body>
 </html>

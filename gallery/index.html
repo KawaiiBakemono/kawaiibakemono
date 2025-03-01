@@ -7,19 +7,25 @@
 		<link rel="stylesheet" type="text/css" href="/css/default.css">
 		<link rel="stylesheet" type="text/css" href="/css/light-mode.css">
 		<link rel="stylesheet" type="text/css" href="/css/tooltips.css">
-		<link rel="stylesheet" type="text/css" href="/css/glitch.css">
 		<!-- Scripts -->
 		<script src="/js/htmx.min.js"></script>
-		<script src="/js/background.js" defer></script>
+		<script src="/js/effects.js" defer></script>
+		<script src="/js/text_scramble.js" defer></script>
+		<!-- Fonts -->
+		<link rel="preload" href="/fonts/Yeah_But_When_I_Do_It.otf" as="font" type="font/otf" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/Sedgwick_Ave_Display.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/Elizabeth_Handwriting.otf" as="font" type="font/otf" crossorigin="anonymous">
+		<!-- Tab Stuff -->
 		<link rel="icon" type="image/svg" href="/icons/cat.svg">
 		<title>Gallery - KawaiiBakemono</title>
 	</head>
 	<body>
-		<div id="moveable-background" background-image='url("/img/dragon_fountain.jpg")'></div>
+		<div id="moveable-background"></div>
 		<div hx-get="/html/template-header.html" hx-trigger="load"></div>
-		<main>
-			<h1 class="glitch" data-text="Gallery">Gallery</h1>
-        	<h2>A 2D artist that draws all things cute, quirky, and surreal!</h2>
-		</main>
+		<main class="construction-notice">
+            <h1 class="neon-text">Gallery</h1>
+            <h2>Oops! Looks like this page is under construction!</h2>
+            <img src="/img/Under_Construction.png" alt="Under Construction!">
+        </main>
 	</body>
 </html>
