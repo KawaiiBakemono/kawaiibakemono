@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   fill="#000000"
+   height="16"
+   width="16"
+   version="1.1"
+   id="Layer_1"
+   viewBox="-267 288.9 16 16"
+   xml:space="preserve"
+   sodipodi:docname="javascript.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs3" /><sodipodi:namedview
+   id="namedview3"
+   pagecolor="#505050"
+   bordercolor="#ffffff"
+   borderopacity="1"
+   inkscape:showpageshadow="0"
+   inkscape:pageopacity="0"
+   inkscape:pagecheckerboard="1"
+   inkscape:deskcolor="#d1d1d1"
+   inkscape:zoom="18.922177"
+   inkscape:cx="0.55490442"
+   inkscape:cy="6.3417649"
+   inkscape:current-layer="Layer_1" />
+
+<path
+   id="rect1"
+   style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+   d="m -263.61719,288.9 c -1.87376,0 -3.38281,1.50905 -3.38281,3.38281 v 9.23438 c 0,1.87376 1.50905,3.38281 3.38281,3.38281 h 9.23438 c 1.87376,0 3.38281,-1.50905 3.38281,-3.38281 v -9.23438 c 0,-1.87376 -1.50905,-3.38281 -3.38281,-3.38281 z m 7.82227,6.49999 c 1.76,0 2.5607,1.00247 2.7207,2.31447 h -1.50391 c -0.0853,-0.74668 -0.50154,-1.21485 -1.26954,-1.21485 -0.58667,0 -1.03513,0.27584 -1.03513,0.87304 0,0.61865 0.39501,0.92773 1.56833,1.20508 1.62136,0.37332 2.34571,1.1207 2.34571,2.3047 0,1.38667 -1.26805,2.17579 -2.71873,2.17579 -1.76,0 -2.91197,-0.77759 -3.05079,-2.32424 h 1.50391 c 0.16,0.81065 0.7787,1.22656 1.52538,1.22656 0.672,0 1.20508,-0.36238 1.20508,-0.92773 0,-0.61865 -0.38466,-0.98241 -1.47266,-1.23829 -1.504,-0.36268 -2.45312,-0.88554 -2.45312,-2.24021 0,-1.35468 1.22677,-2.15432 2.63477,-2.15432 z m -5.43945,0.14851 h 1.4707 l 0.002,4.34181 c 0,0.30932 -0.001,0.54433 -0.0333,1.01365 -0.0747,1.26936 -0.87374,2.15432 -2.62306,2.15432 -1.70668,0 -2.52767,-0.94915 -2.57032,-2.45315 l -0.0151,-0.37305 h 1.47267 l 0.0212,0.37305 c 0.0532,0.98133 0.48051,1.35547 1.17384,1.35547 0.68267,0 1.02378,-0.43857 1.08791,-1.14257 0.0121,-0.2347 0.0121,-0.47882 0.0121,-0.77734 z" /></svg>

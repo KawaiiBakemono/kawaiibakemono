@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Imports-->
+		<link rel="stylesheet" type="text/css" href="/css/default.css">
+		<link rel="stylesheet" type="text/css" href="/css/light-mode.css">
+		<!-- Scripts -->
+		<script src="/js/htmx.min.js"></script>
+		<script src="/js/effects.js" defer></script>
+		<script src="/js/text_scramble.js" defer></script>
+		<!-- Fonts -->
+		<link rel="preload" href="/fonts/Yeah_But_When_I_Do_It.otf" as="font" type="font/otf" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/Sedgwick_Ave_Display.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/Elizabeth_Handwriting.otf" as="font" type="font/otf" crossorigin="anonymous">
+        <!-- Open Graph Tags -->
+        <meta property="og:title" content="Waking Dreams - KawaiiBakemono">
+        <meta property="og:description" content="My official portfolio website! View my work, see my contributions, or get in contact with me!">
+		<!-- Tab Stuff -->
+		<link rel="icon" type="image/svg" href="/icons/cat.svg">
+		<title>Waking Dreams - KawaiiBakemono</title>
+	</head>
+	<body>
+		<div id="moveable-background"></div>
+        <div hx-get="/html/template-header.html" hx-trigger="load"></div>
+        <main class="construction-notice">
+            <h1 class="neon-text">Waking Dreams</h1>
+            <h2>Oops! Looks like this page is under construction!</h2>
+            <img src="/img/Under_Construction.png" alt="Under Construction!">
+        </main>
+	</body>
+</html>

@@ -1,16 +1,28 @@
 :root {
 	overflow-x: hidden;
-	overflow-y: hidden;
 }
 
 $text-color: #f8f8ff;
-$primary-accent-color: #ff5e9c;
-$secondary-accent-color: #51003d;
-$link-hover: #ff90ba;
-$neon-glow-color: #ff5e9c;
+$faded-text-color: #f8f8ff44;
+$background-color: #0f0408;
+$primary-color: #a80ba0;
+$primary-tint-color: #f366ec;
+$primary-trans-color: #a80ba066;
+$secondary-color: #6b1f83;
+$secondary-trans-color: #6d1f8466;
+$accent-color: #df1283;
 $neon-dim-color: #fff0f670;
-$semitrans-volume: #e732ba33;
-$semitrans-volume-hover: #ff22bd50;
+
+$vw-multiplier: 0.08vw;
+$normal-text: calc(1rem + $vw-multiplier);
+$small-text: calc(0.8rem + $vw-multiplier);
+$h1-text: calc(3rem + $vw-multiplier);
+$h2-text: calc(2rem + $vw-multiplier);
+$h3-text: calc(1.2rem + $vw-multiplier);
+
+$scale-transition-time: 0.3s;
+$border-radius: 1vw;
+
 
 // ==== CUSTOM FONTS ====
 
@@ -26,14 +38,81 @@ $semitrans-volume-hover: #ff22bd50;
 	font-family: 'Sedgwick Ave Display';
 	src: url('/fonts/Sedgwick_Ave_Display.ttf') format('truetype');
 }
+@font-face {
+	font-family: 'Montserrat Alternates';
+	src: url('/fonts/Montserrat_Alternates.ttf') format('truetype');
+}
 
-// ====== DEBUG ======
+* {
+    color: $text-color;
+	font-size: $normal-text;
+	font-family: 'Montserrat Alternates';
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 
-// This is commented out for release, this is just to help me develop stuffs uwu
+    // ==== SCROLLBAR ====
+    /* Chrome, Edge and Safari */
+    &::-webkit-scrollbar {
+        height: 10px;
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background-color: $secondary-trans-color;
+    }
+    &::-webkit-scrollbar-track:hover {
+        background-color: $secondary-trans-color;
+    }
+    &::-webkit-scrollbar-track:active {
+        background-color: $secondary-trans-color;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $primary-trans-color;
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: $primary-color;
+    }
+    &::-webkit-scrollbar-thumb:active {
+        background-color: $primary-color;
+    }
+}
 
-// .grid-line {
-//     border: 1px dashed #ffffff80;
+// ==== GENERIC ====
+
+// DEBUG PURPOSES ONLY
+// * {
+//     &:nth-child(3n+0) {
+//         border: 1px dashed #ff000080; // DEBUG
+//     }
+//     &:nth-child(3n+1) {
+//         border: 1px dashed #006eff80; // DEBUG
+//     }
+//     &:nth-child(3n+2) {
+//         border: 1px dashed #ffae0080; // DEBUG
+//     }
 // }
+
+body {
+	background-color: black;
+    text-align: left;
+    z-index: 1;
+}
+
+p {
+	font-size: 18px;
+    line-height: 32px;
+}
+
+a {
+	color: $accent-color;
+	text-decoration-thickness: 1px;
+    
+    &:hover {
+        color: $text-color;
+    }
+}
 
 // ====== UNDER CONSTRUCTION NOTICE ======
 
@@ -59,37 +138,39 @@ $semitrans-volume-hover: #ff22bd50;
 
 .main-wrapper {
     display: grid;
-    grid-template-columns: repeat(8, 35vw);
+    grid-template-columns: 30vw 22vw 22vw 22vw;
     gap: 2vw;
     grid-auto-rows: auto;
     grid-template-areas:
-        "a c c"
-        "b c c";
+        "a c d e"
+        "b c d e";
     align-items: start;
-    align-content: start;
+    align-content: center;
 }
 
 .scrambled-text {
-    font-size: 70px;
+    font-size: 3vw;
     font-family: 'Sedgwick Ave Display', sans-serif;
     color: $neon-dim-color;
     text-shadow: none;
-    -webkit-text-stroke: 3px $neon-dim-color;
+    -webkit-text-stroke: 0.01rem $neon-dim-color;
 }
 
 .introduction {
     grid-area: a;
     padding-left: 10%;
-    font-family: 'Sedgwick Ave Display', sans-serif;
 
     h1 {
-        font-size: 50px;
-        margin-bottom: 5px;
+        font-size: 1.6vw;
+        margin-bottom: 2vh;
     }
 
     h2 {
-        font-size: 70px;
-        margin-bottom: 20px;
+        font-family: 'Sedgwick Ave Display', sans-serif;
+        font-size: 3vw;
+        margin-bottom: 4vh;
+        letter-spacing: 0.05em;
+        vertical-align: middle;
     }
 }
 
@@ -102,66 +183,99 @@ $semitrans-volume-hover: #ff22bd50;
     grid-area: c;
 }
 
-blockquote {
-    border-left: 4px solid $primary-accent-color;
-    padding-left: 20px;
+.area-d {
+    grid-area: d;
 }
 
-// ====== DEFAULT STUFF ======
-
-* {
-	color: $text-color;
-	font-size: 32px;
-	font-family: 'Elizabeth Handwriting';
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+.area-e {
+    grid-area: e;
 }
 
-body {
-	background-color: black;
-    text-align: left;
+// blockquote {
+//     border-left: 4px solid $primary-color;
+//     padding-left: 20px;
+// }
+
+// ==== CARDS ====
+
+.card {
+    position: relative;
+    flex-direction: column;
+    width: 18vw;
+    height: 32vh;
+    // margin-bottom: 32px;
+    word-wrap: break-word;
+    display: flex;
+
+    padding: 16px;
+
+    background-color: $accent-color;
+    background-image: url(/img/placeholder.jpg);
+    background-size: cover;
+
+    background-clip: border-box;
+    box-shadow: 0 0 32px $secondary-trans-color;
+    border-radius: $border-radius;
 }
 
-h2 {
-	font-family: 'Sedgwick Ave Display', sans-serif;
-	font-size: 80px;
-	font-weight: 500;
+.above-fade {
+    margin-top: -64px;
+    transform: rotateX(45deg);
+    mask-image: linear-gradient(to top, white, transparent);
 }
 
-p {
-	font-size: 32px;
+.below-fade {
+    transform: rotateX(-45deg);
+    mask-image: linear-gradient(to bottom, white, transparent);
 }
 
-a {
-	font-size: 40px;
-	font-family: 'Elizabeth Handwriting';
-	color: $primary-accent-color;
-	text-decoration-thickness: 1px;
-    
-    &:hover {
-        color: $link-hover;
-    }
+.card-title {
+    font-size: $h2-text;
+    margin-top: auto;
+    margin-bottom: 16px;
+}
+
+.card-description {
+    font-size: $normal-text;
+    color: $primary-tint-color;
+    line-height: 24px;
+}
+
+.card-link {
+    font-weight: 500;
+}
+
+span.card-tag {
+    font-size: $small-text;
+    width: calc-size(fit-content, size);
+    border-radius: $border-radius;
+    padding: 6px 10px;
+    background-color: $primary-trans-color;
 }
 
 // ==== NAVIGATION/HEADER BAR ====
 
 header {
 	display: flex;
-	// position: fixed;
-	z-index: 2;
 	justify-content: space-between;
 	align-items: center;
-	
-    padding: 24px 4%;
+    padding: {
+        bottom: 10vh;
+        top: 6vh;
+        left: 6vh;
+        right: 6vh;
+    }
 }
 
 nav {
+    width: 94vw;
+    z-index: 10;
+    position: fixed;
+    overflow: hidden;
 	justify-content: space-between;
 	align-items: center;
 	display: inline-flex;
-	margin: auto;
-	width: 100%;
+	// width: 100%;
 }
 
 li {
@@ -176,10 +290,10 @@ li {
         padding: 0px 20px;
     }
     li a {
-        transition: all 0.3s ease 0s;
+        transition: all $scale-transition-time ease 0s;
 
         &:hover {
-            color: $primary-accent-color;
+            color: $primary-color;
             text-decoration: underline 1px;
         }
     }
@@ -205,18 +319,19 @@ img.nav-icon-clickable {
 
 // ==== BUTTONS ====
 
-button {
+.squombus-button {
 	border: none;
-	border-radius: 10px 50px;
+	border-radius: 1rem 5rem;
 	cursor: pointer;
-	font-size: 28px;
-	padding: 5px 25px;
-	transition-duration: 0.3s;
+	padding: 8px 24px;
+    margin-right: 8px;
+	transition-duration: $scale-transition-time;
 
     &:hover {
         transform: scale(110%, 110%);
-        background: $semitrans-volume-hover;
-        color: $link-hover;
+        border-radius: 5rem 1rem;
+        background: $primary-trans-color;
+        color: $primary-tint-color;
         text-decoration: underline;
         text-decoration-thickness: 1px;
     }
@@ -224,8 +339,7 @@ button {
 
 img.button-icon {
     aspect-ratio: 1 / 1;
-	height: 18px;
-    margin-right: 6px;
+    margin-right: 0.4vw;
     align-self: baseline;
 }
 
@@ -233,55 +347,171 @@ img.button-icon {
 .small-container {
     position: relative;
     align-items: center;
-    border-radius: 25px;
-    padding-left: 8px;
-    padding-right: 8px;
+    border-radius: $border-radius;
+    // padding-left: 8px;
+    // padding-right: 8px;
 }
 
-button, .small-container {
-    background-color: $semitrans-volume;
-    backdrop-filter: blur(10px);
+.squombus-button, .card, .small-container {
+    background-color: $secondary-trans-color;
+    backdrop-filter: blur(20px);
+}
+
+
+// ==== GALLERY ====
+
+.gallery-wrapper {
+    align-items: center;
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+.gallery-card {
+    display: inline-flex;
+    margin: 2vh 8vw;
+    padding: 4vh 2vw;
+    width: 75%;
+    transition-duration: $scale-transition-time;
+    text-decoration: none;
+    border-radius: $border-radius;
+
+    &:nth-child(even) {
+        text-align: left;
+    }
+    &:nth-child(odd) {
+        text-align: right;
+    }
+
+    &:hover {
+        transform: scale(105%, 105%);
+        background-color: $secondary-trans-color;
+    }
+
+    span.card-tag {
+        color: $primary-tint-color;
+        font-size: $small-text;
+        width: calc-size(fit-content, size);
+        padding: 6px 10px;
+        margin-right: 6px;
+        background-color: $primary-trans-color;
+        border-radius: $border-radius;
+        
+        .tag-icon {
+            aspect-ratio: 1 / 1;
+            height: 16px;
+            margin: {
+                bottom: -3px;
+                right: 6px;
+            }
+            align-self: center;
+            align-content: baseline;
+        }
+    }
+
+}
+
+h2.gallery-h2 {
+    font: {
+        size: $h2-text;
+        family: 'Montserrat Alternates';
+    }
+    margin: {
+        top: 4vh;
+        bottom: 1vh;
+        left: 1vw;
+        right: 1vw;
+    }
+}
+
+h3.gallery-h3 {
+    @extend .gradient-text;
+    display: inline-block;
+    font: {
+        size: $h3-text;
+        family: 'Montserrat Alternates';
+    }
+    margin: {
+        top: 1vh;
+        left: 1vw;
+        right: 1vw;
+    }
+}
+
+blockquote.gallery-blockquote {
+    margin: 2vh 2vh;
+
+    &.left {
+        border-left: 4px solid $primary-color;
+        padding-left: 20px;
+    }
+
+    &.right {
+        border-right: 4px solid $primary-color;
+        padding-right: 20px;
+    }
+}
+
+img.gallery-img {
+    max-width: 24vw;
+    max-height: 32vh;
+    border-radius: $border-radius;
+    // box-shadow: 0 0 2vh $background-color;
+
+    &:nth-child(odd) {
+        margin-right: 10vh;
+    }
+    &:nth-child(even) {
+        margin-left: 10vh;
+    }
+}
+
+.description-wrapper {
+    width: 60vw;
+}
+
+h1.page-title {
+    text-align: left;
+    font: {
+        size: $h1-text;
+        family: 'Sedgwick Ave Display', sans-serif;
+    }
+    margin: {
+        left: 4vw;
+        right: 4vw;
+        bottom: 6vh;
+    }
 }
 
 // ==== FUN STUFF ====
 
-#moveable-background {
-	background-image: url('/img/dragon_fountain-low.jpg'); // this is just the default image
-	background-size: cover;
+#moveable-background[data-image] {
+    background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	opacity: 40%;
-
+	opacity: attr(data-opacity);
+    background-image: url(attr(data-image)); // this is just the default image
+    
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	height: 120%;
 	width: 120%;
-
+    
 	display: flex;
-	align-items: center;
-	justify-content: center;
 	position: fixed;
 	filter: blur(5px);
 	transition: all 2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1ms;
-
+    
 	z-index: -1;
 }
 
 .gradient-text {
-	font-family: 'Qwigley', sans-serif;
-	font-size: 96px;
-	letter-spacing: 8px;
-
-	margin-top: 64px;
-	padding-left: 32px;
-
-	background: linear-gradient(-90deg, $text-color 0%, $primary-accent-color 75%);
-	color: transparent;
-	-webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-	// text-fill-color: transparent;
+    background: linear-gradient(90deg, $primary-tint-color 0%, $accent-color 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
 }
 
 .neon-text {
@@ -300,7 +530,7 @@ button, .small-container {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: $semitrans-volume;
+    background-color: $secondary-trans-color;
 }
 
 .modal-content {
@@ -308,7 +538,7 @@ button, .small-container {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    border-radius: 15px;
+    border-radius: $border-radius;
     width: 80%;
 }
 
@@ -367,7 +597,7 @@ button, .small-container {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: $secondary-accent-color;
+	background-color: $secondary-color;
 	border-radius: 26px;
 	-webkit-transition: .4s;
 	transition: .4s;
@@ -387,10 +617,10 @@ button, .small-container {
 }
 
 input:checked + .slider {
-	background-color: $primary-accent-color;
+	background-color: $primary-color;
 }
 input:focus + .slider {
-	box-shadow: 0 0 1px $primary-accent-color;
+	box-shadow: 0 0 1px $primary-color;
 }
 input:checked + .slider:before {
 	-webkit-transform: translateX(32px);
@@ -427,20 +657,18 @@ input:checked + .slider:before {
 	opacity: 1;
 }
 
-
 // ==== TOOLTIPS ====
 
-.icon-tooltip {
-    font-size: 32px;
-    color: $text-color;
+.expanding-tooltip {
     text-decoration: none;
+    color: $text-color;
 
     display: inline-flex;
-    height: 40px;
-    width: 40px;
+    height: 42px;
+    width: 44px;
     padding: 4px;
     align-self: center;
-    border-radius: 25px;
+    border-radius: 24px;
     align-items: center;
     white-space: nowrap;
     overflow: hidden;
@@ -450,12 +678,12 @@ input:checked + .slider:before {
         width: calc-size(fit-content, size);
         position: relative;
         padding-right: 12px;
-        background-color: $semitrans-volume-hover;
+        background-color: $primary-trans-color;
         transition: width 300ms ease-in-out 0s, background-color 100ms linear 0s;
     }
     
     &:focus-visible {
-        outline: 1px solid $semitrans-volume-hover;
+        outline: 1px solid $primary-trans-color;
         outline-offset: 4px;
     }
 
@@ -477,22 +705,22 @@ input:checked + .slider:before {
 	100% {
 		text-shadow:
 			0 0 1px $text-color,
-			0 0 5px $neon-glow-color,
-			0 0 10px $neon-glow-color,
-			0 0 20px $neon-glow-color,
-			0 0 40px $neon-glow-color;
+			0 0 5px $accent-color,
+			0 0 10px $accent-color,
+			0 0 20px $primary-color,
+			0 0 40px $primary-color;
 	}
 	0% {
 		text-shadow:
 			0 0 2px $text-color,
-			0 0 10px $neon-glow-color,
-			0 0 20px $neon-glow-color,
-			0 0 40px $neon-glow-color,
-			0 0 60px $neon-glow-color;
+			0 0 10px $accent-color,
+			0 0 20px $accent-color,
+			0 0 40px $primary-color,
+			0 0 60px $primary-color;
 	}
 }
 
-@keyframes odsoky {
+@keyframes levitate {
     0% { transform: translateY(6px); }
 	100%{ transform: translateY(0px); }
 }

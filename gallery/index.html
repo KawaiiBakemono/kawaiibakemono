@@ -6,7 +6,6 @@
 		<!-- Imports-->
 		<link rel="stylesheet" type="text/css" href="/css/default.css">
 		<link rel="stylesheet" type="text/css" href="/css/light-mode.css">
-		<link rel="stylesheet" type="text/css" href="/css/tooltips.css">
 		<!-- Scripts -->
 		<script src="/js/htmx.min.js"></script>
 		<script src="/js/effects.js" defer></script>
@@ -23,12 +22,47 @@
 		<title>Gallery - KawaiiBakemono</title>
 	</head>
 	<body>
-		<div id="moveable-background"></div>
-		<div hx-get="/html/template-header.html" hx-trigger="load"></div>
-		<main class="construction-notice">
-            <h1 class="neon-text">Gallery</h1>
-            <h2>Oops! Looks like this page is under construction!</h2>
-            <img src="/img/Under_Construction.png" alt="Under Construction!">
+		<div id="moveable-background" data-image="/img/code.png" data-opacity="50%"></div>
+        <div hx-get="/html/template-header.html" hx-trigger="load" defer></div>
+		<main class="gallery-wrapper">
+            <h1 class="page-title neon-text">Project Gallery</h1>
+            <a class="gallery-card" href="/gallery/waking-dreams/">
+                <img class="gallery-img" src="/img/Waking_Dreams-thumb.png" alt="thumbnail">
+                <div class="description-wrapper">
+                    <div>
+                        <span class="card-tag"><img class="tag-icon" src="/icons/game.svg" alt="icon">Game Dev</span>
+                        <span class="card-tag"><img class="tag-icon" src="/icons/javascript.svg" alt="icon">JavaScript</span>
+                        <span class="card-tag"><img class="tag-icon" src="/icons/vector.svg" alt="icon">Logo Design</span>
+                        <span class="card-tag"><img class="tag-icon" src="/icons/pixel-art.svg" alt="icon">Pixel Art</span>
+                    </div>
+                    <h2 class="neon-text gallery-h2">Waking Dreams</h2>
+                    <h3 class="gallery-h3">RPG Maker MZ Game</h3>
+                    <blockquote class="gallery-blockquote left">
+                        An in-development game made in the RPG Maker MZ, a JavaScript-based engine.
+                        My contributions include writing custom JavaScript plugins, designing the game's logos,
+                        drawing a handful of pixel art sprites, and playtesting builds of the game to provide
+                        feedback for the lead developer.
+                    </blockquote>
+                </div>
+            </a>
+            <a class="gallery-card" href="/gallery/waking-dreams/">
+                <div class="description-wrapper">
+                    <div>
+                        <span class="card-tag"><img class="tag-icon" src="/icons/json.svg" alt="icon">JSON</span>
+                        <span class="card-tag"><img class="tag-icon" src="/icons/modding.svg" alt="icon">Modding</span>
+                        <span class="card-tag"><img class="tag-icon" src="/icons/vector.svg" alt="icon">Logo Design</span>
+                        <span class="card-tag"><img class="tag-icon" src="/icons/pixel-art.svg" alt="icon">Pixel Art</span>
+                    </div>
+                    <h2 class="neon-text gallery-h2">Voxilla</h2>
+                    <h3 class="gallery-h3">Java Minecraft Resourcepack</h3>
+                    <blockquote class="gallery-blockquote right">
+                        A faithful Minecraft resourcepack that aims to improve upon the already existing art style
+                        and textures. v2.0 is in active development, although no set release date has been decided,
+                        as I am currently focusing on my website at the moment.
+                    </blockquote>
+                </div>
+                <img class="gallery-img" src="/img/Voxilla-logo-thumbnail.png" alt="thumbnail">
+            </a>
         </main>
 	</body>
 </html>

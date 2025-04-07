@@ -5,6 +5,7 @@ class TextScramble {
         this.chars = '!#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
         this.update = this.update.bind(this);
     }
+    
     setText(newText) {
         const transitionLength = 100; // how long it takes to get to the next string
         const oldText = this.el.innerText;

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="100"
+   height="100"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="placeholder_square.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xml:space="preserve"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#292929"
+     bordercolor="#000000"
+     borderopacity="1"
+     inkscape:showpageshadow="false"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#000000"
+     inkscape:zoom="4"
+     inkscape:cx="27"
+     inkscape:cy="43"
+     inkscape:window-width="1920"
+     inkscape:window-height="1023"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1"
+     labelstyle="default"
+     inkscape:clip-to-page="false"
+     shape-rendering="auto"
+     guidehicolor="#fe85a9"
+     guidehiopacity="0.49803922"
+     guidecolor="#0084e2"
+     guideopacity="0.6"
+     borderlayer="true"
+     showborder="true" /><defs
+     id="defs1"><style
+       id="current-color-scheme"
+       type="text/css">
+   .ColorScheme-Text { color:#444444; } .ColorScheme-Highlight { color:#4285f4; } .ColorScheme-NeutralText { color:#ff9800; } .ColorScheme-PositiveText { color:#4caf50; } .ColorScheme-NegativeText { color:#f44336; }
+  </style><style
+       id="current-color-scheme-6"
+       type="text/css">
+   .ColorScheme-Text { color:#444444; } .ColorScheme-Highlight { color:#4285f4; } .ColorScheme-NeutralText { color:#ff9800; } .ColorScheme-PositiveText { color:#4caf50; } .ColorScheme-NegativeText { color:#f44336; }
+  </style><style
+       id="current-color-scheme-5"
+       type="text/css">
+   .ColorScheme-Text { color:#444444; } .ColorScheme-Highlight { color:#4285f4; } .ColorScheme-NeutralText { color:#ff9800; } .ColorScheme-PositiveText { color:#4caf50; } .ColorScheme-NegativeText { color:#f44336; }
+  </style></defs><rect
+     style="fill:#615a83;stroke-width:4;stroke-linejoin:round;paint-order:markers fill stroke;stroke:#2e2651;stroke-opacity:1;fill-opacity:1;stroke-dasharray:none;stroke-linecap:round"
+     id="rect1"
+     width="100"
+     height="100"
+     x="0"
+     y="0" /><path
+     style="fill:#615a83;fill-opacity:1;stroke:#2e2651;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+     d="M 0,0 100,100"
+     id="path1" /><path
+     style="fill:#615a83;fill-opacity:1;stroke:#2e2651;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+     d="M 0,100 100,0"
+     id="path2" /><text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.1198px;line-height:1;font-family:Hack;-inkscape-font-specification:'Hack, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;letter-spacing:0.795362px;word-spacing:7.95362px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;white-space:pre;fill:#615a83;fill-opacity:1;stroke:#615a83;stroke-width:4.54493;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+     x="49.803562"
+     y="53.47168"
+     id="text2"><tspan
+       sodipodi:role="line"
+       x="50.201241"
+       y="53.47168"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12.1198px;font-family:Hack;-inkscape-font-specification:'Hack, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#2e2651;fill-opacity:1;stroke:#615a83;stroke-width:4.54493;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="tspan3">PLACEHOLDER</tspan></text></svg>
