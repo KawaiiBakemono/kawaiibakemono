@@ -1,7 +1,3 @@
-:root {
-  overflow-x: hidden;
-}
-
 @font-face {
   font-family: "Yeah But When I Do It";
   src: url("/fonts/Yeah_But_When_I_Do_It.otf") format("opentype");
@@ -18,9 +14,17 @@
   font-family: "Montserrat Alternates";
   src: url("/fonts/Montserrat_Alternates.ttf") format("truetype");
 }
+@font-face {
+  font-family: "VCR OSD MONO";
+  src: url("/fonts/VCR_OSD_MONO.ttf") format("truetype");
+}
+:root {
+  overflow-x: hidden;
+}
+
 * {
   color: #f8f8ff;
-  font-size: calc(1rem + 0.08vw);
+  font-size: calc(1rem + 0.05vw);
   font-family: "Montserrat Alternates";
   margin: 0;
   padding: 0;
@@ -66,6 +70,7 @@ p {
 a {
   color: #df1283;
   text-decoration-thickness: 1px;
+  transition-duration: 100ms;
 }
 a:hover {
   color: #f8f8ff;
@@ -151,7 +156,7 @@ a:hover {
   background-size: cover;
   background-clip: border-box;
   box-shadow: 0 0 32px rgba(109, 31, 132, 0.4);
-  border-radius: 1vw;
+  border-radius: 25px;
 }
 
 .above-fade {
@@ -168,13 +173,13 @@ a:hover {
 }
 
 .card-title {
-  font-size: calc(2rem + 0.08vw);
+  font-size: calc(2rem + 0.05vw);
   margin-top: auto;
   margin-bottom: 16px;
 }
 
 .card-description {
-  font-size: calc(1rem + 0.08vw);
+  font-size: calc(1rem + 0.05vw);
   color: #f366ec;
   line-height: 24px;
 }
@@ -184,10 +189,10 @@ a:hover {
 }
 
 span.card-tag {
-  font-size: calc(0.8rem + 0.08vw);
+  font-size: calc(0.8rem + 0.05vw);
   width: calc-size(-moz-fit-content, size);
   width: calc-size(fit-content, size);
-  border-radius: 1vw;
+  border-radius: 25px;
   padding: 6px 10px;
   background-color: rgba(168, 11, 160, 0.4);
 }
@@ -196,14 +201,17 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-self: center;
   padding-bottom: 10vh;
   padding-top: 6vh;
-  padding-left: 6vh;
-  padding-right: 6vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  margin-left: 1vw;
 }
 
 nav {
   width: 94vw;
+  padding-left: 10px;
   z-index: 10;
   position: fixed;
   overflow: hidden;
@@ -231,6 +239,24 @@ li {
   color: #a80ba0;
   -webkit-text-decoration: underline 1px;
           text-decoration: underline 1px;
+}
+
+footer {
+  color: #df1283;
+  font-size: calc(0.8rem + 0.05vw);
+  text-align: center;
+  margin-bottom: 4vh;
+}
+
+.screen-wrapper {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  pointer-events: none;
 }
 
 img.nav-icon, img.nav-icon-clickable {
@@ -270,7 +296,7 @@ img.button-icon {
 .small-container {
   position: relative;
   align-items: center;
-  border-radius: 1vw;
+  border-radius: 25px;
 }
 
 .squombus-button, .card, .small-container {
@@ -279,20 +305,22 @@ img.button-icon {
           backdrop-filter: blur(20px);
 }
 
-.gallery-wrapper {
+.wrapper {
   align-items: center;
   text-align: center;
   line-height: 1.5rem;
 }
 
 .gallery-card {
+  align-items: center;
   display: inline-flex;
   margin: 2vh 8vw;
   padding: 4vh 2vw;
-  width: 75%;
+  width: 70%;
+  height: 50vh;
   transition-duration: 0.3s;
   text-decoration: none;
-  border-radius: 1vw;
+  border-radius: 25px;
 }
 .gallery-card:nth-child(even) {
   text-align: left;
@@ -306,13 +334,13 @@ img.button-icon {
 }
 .gallery-card span.card-tag {
   color: #f366ec;
-  font-size: calc(0.8rem + 0.08vw);
+  font-size: calc(0.8rem + 0.05vw);
   width: calc-size(-moz-fit-content, size);
   width: calc-size(fit-content, size);
   padding: 6px 10px;
   margin-right: 6px;
   background-color: rgba(168, 11, 160, 0.4);
-  border-radius: 1vw;
+  border-radius: 25px;
 }
 .gallery-card span.card-tag .tag-icon {
   aspect-ratio: 1/1;
@@ -324,8 +352,7 @@ img.button-icon {
 }
 
 h2.gallery-h2 {
-  font-size: calc(2rem + 0.08vw);
-  font-family: "Montserrat Alternates";
+  font-size: calc(2rem + 0.05vw);
   margin-top: 4vh;
   margin-bottom: 1vh;
   margin-left: 1vw;
@@ -334,7 +361,7 @@ h2.gallery-h2 {
 
 h3.gallery-h3 {
   display: inline-block;
-  font-size: calc(1.2rem + 0.08vw);
+  font-size: calc(1.2rem + 0.05vw);
   font-family: "Montserrat Alternates";
   margin-top: 1vh;
   margin-left: 1vw;
@@ -356,7 +383,7 @@ blockquote.gallery-blockquote.right {
 img.gallery-img {
   max-width: 24vw;
   max-height: 32vh;
-  border-radius: 1vw;
+  border-radius: 25px;
 }
 img.gallery-img:nth-child(odd) {
   margin-right: 10vh;
@@ -371,19 +398,19 @@ img.gallery-img:nth-child(even) {
 
 h1.page-title {
   text-align: left;
-  font-size: calc(3rem + 0.08vw);
+  font-size: calc(3rem + 0.05vw);
   font-family: "Sedgwick Ave Display", sans-serif;
   margin-left: 4vw;
   margin-right: 4vw;
   margin-bottom: 6vh;
 }
 
-#moveable-background[data-image] {
+#moveable-background {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: attr(data-opacity);
-  background-image: url(attr(data-image));
+  opacity: 20%;
+  background-image: url("/img/dragon_fountain-low.jpg");
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -426,7 +453,7 @@ h1.page-title {
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  border-radius: 1vw;
+  border-radius: 25px;
   width: 80%;
 }
 

@@ -22,9 +22,9 @@
 		<title>Gallery - KawaiiBakemono</title>
 	</head>
 	<body>
-		<div id="moveable-background" data-image="/img/code.png" data-opacity="50%"></div>
+		<div id="moveable-background" style="background-image: url('/img/code.png'); opacity: 60%"></div>
         <div hx-get="/html/template-header.html" hx-trigger="load" defer></div>
-		<main class="gallery-wrapper">
+		<main class="wrapper">
             <h1 class="page-title neon-text">Project Gallery</h1>
             <a class="gallery-card" href="/gallery/waking-dreams/">
                 <img class="gallery-img" src="/img/Waking_Dreams-thumb.png" alt="thumbnail">
@@ -45,7 +45,7 @@
                     </blockquote>
                 </div>
             </a>
-            <a class="gallery-card" href="/gallery/waking-dreams/">
+            <a class="gallery-card" href="https://www.planetminecraft.com/texture-pack/voxilla/" target="_blank">
                 <div class="description-wrapper">
                     <div>
                         <span class="card-tag"><img class="tag-icon" src="/icons/json.svg" alt="icon">JSON</span>
@@ -63,6 +63,8 @@
                 </div>
                 <img class="gallery-img" src="/img/Voxilla-logo-thumbnail.png" alt="thumbnail">
             </a>
+            <div class="spacer"></div>
         </main>
+        <footer hx-get="/html/template-footer.html" hx-trigger="load" defer></footer>
 	</body>
 </html>

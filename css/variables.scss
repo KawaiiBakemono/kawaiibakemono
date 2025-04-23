@@ -1,0 +1,47 @@
+// ==== VARIABLES ====
+
+$text-color: #f8f8ff;
+$faded-text-color: #f8f8ff44;
+$background-color: #0f0408;
+$primary-color: #a80ba0;
+$primary-tint-color: #f366ec;
+$primary-trans-color: #a80ba066;
+$secondary-color: #6b1f83;
+$secondary-trans-color: #6d1f8466;
+$accent-color: #df1283;
+$neon-dim-color: #fff0f670;
+
+$vw-multiplier: 0.05vw;
+$normal-text: calc(1rem + $vw-multiplier);
+$small-text: calc(0.8rem + $vw-multiplier);
+$h1-text: calc(3rem + $vw-multiplier);
+$h2-text: calc(2rem + $vw-multiplier);
+$h3-text: calc(1.2rem + $vw-multiplier);
+$default-font: 'Montserrat Alternates';
+
+$scale-transition-time: 0.3s;
+$border-radius: 25px;
+$box-shadow: 0 0 32px $secondary-trans-color;;
+
+// ==== CUSTOM FONTS ====
+
+@font-face {
+	font-family: 'Yeah But When I Do It';
+    src: url('/fonts/Yeah_But_When_I_Do_It.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Elizabeth Handwriting';
+	src: url('/fonts/Elizabeth_Handwriting.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Sedgwick Ave Display';
+	src: url('/fonts/Sedgwick_Ave_Display.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Montserrat Alternates';
+	src: url('/fonts/Montserrat_Alternates.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'VCR OSD MONO';
+	src: url('/fonts/VCR_OSD_MONO.ttf') format('truetype');
+}

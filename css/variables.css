@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Yeah But When I Do It";
+  src: url("/fonts/Yeah_But_When_I_Do_It.otf") format("opentype");
+}
+@font-face {
+  font-family: "Elizabeth Handwriting";
+  src: url("/fonts/Elizabeth_Handwriting.otf") format("opentype");
+}
+@font-face {
+  font-family: "Sedgwick Ave Display";
+  src: url("/fonts/Sedgwick_Ave_Display.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates.ttf") format("truetype");
+}
+@font-face {
+  font-family: "VCR OSD MONO";
+  src: url("/fonts/VCR_OSD_MONO.ttf") format("truetype");
+}/*# sourceMappingURL=variables.css.map */

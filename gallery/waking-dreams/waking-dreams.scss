@@ -1,0 +1,412 @@
+@import '../../css/variables.scss';
+
+* {
+    font-family: 'VCR OSD MONO';
+}
+
+// ======== Images ======== 
+
+// Used for Aina
+#character-img {
+    position: fixed;
+    align-items: end;
+    height: 48vh;
+    bottom: 0px; right: 2vw;
+    cursor: pointer;
+    pointer-events: all;
+    
+    &:active {
+        animation: squish 50ms ease forwards;
+    }
+}
+
+img {
+    position: relative;
+    z-index: 1;
+    // margin: auto;
+
+    &.title-img {
+        position: relative;
+        height: 10em;
+        margin-top: -5vh;
+    }
+
+    &.display-img-medium {
+        display: block;
+        width: 14vw;
+        height: auto;
+        border-radius: $border-radius;
+        transition-duration: $scale-transition-time;
+
+        &:hover {
+            transform: scale(105%, 105%);
+        }
+    }
+
+    &.display-img-large {
+        display: block;
+        max-width: 24vw;
+        height: auto;
+        border-radius: $border-radius;
+        transition-duration: $scale-transition-time;
+
+        &:hover {
+            transform: scale(105%, 105%);
+        }
+    }
+
+    &.display-img-focused {
+        max-width: 40vw;
+        height: auto;
+        border-radius: $border-radius;
+        transition-duration: $scale-transition-time;
+        align-self: center;
+
+        &:hover {
+            transform: scale(105%, 105%);
+        }
+    }
+
+    &.overlay-image {
+        display: block;
+        margin: auto;
+        position: absolute;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 10rem;
+        scale: 1.5;
+        height: auto;
+        z-index: 2;
+        visibility: hidden;
+    }
+
+    &.explosion-image {
+        @extend .overlay-image;
+        scale: 3.0;
+        z-index: 3;
+    }
+}
+
+.explosive {
+    display: inline-flex;
+    position: relative;
+    cursor: pointer;
+
+    &:active {
+        animation: squish 50ms ease forwards;
+    }
+}
+
+.small {
+    font-size: $small-text;
+}
+
+.captioned-image {
+    display: block;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+    text-align: center;
+    width: 60%;
+
+    p {
+        margin: {
+            top: 4vh;
+            bottom: 10vh;
+        }
+    }
+}
+
+// ======== Headings ========
+
+h2 {
+    font: {
+        size: $h2-text;
+    }
+    margin: {
+        top: 4vh;
+        bottom: 1vh;
+        left: 1vw;
+        right: 1vw;
+    }
+    padding-bottom: 1vh;
+}
+
+h3 {
+    font: {
+        size: $h3-text;
+    }
+    margin: {
+        left: 1vw;
+        right: 1vw;
+        bottom: 2vh;
+    }
+}
+
+main {
+    align-items: center;
+}
+
+iframe {
+    aspect-ratio: 4 / 3;
+    border-radius: $border-radius;
+    border: none;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+blockquote {
+    font-size: $normal-text;
+
+    &.left {
+        border-left: 4px solid $primary-color;
+        padding-left: 20px;
+    }
+
+    &.right {
+        border-right: 4px solid $primary-color;
+        padding-right: 20px;
+    }
+}
+
+.desc-wrapper {
+    margin: auto;
+    width: 60%;
+}
+
+.devs-wrapper {
+    align-items: center;
+    line-height: 1.5rem;
+    display: inline flex;
+	flex-direction: row; 
+	flex-wrap: nowrap;
+    justify-content: center;
+    width: 80%;
+}
+
+.developer-showcase {
+    display: inline flex;
+    width: 30vw;
+
+    margin: 0vh 2vw;
+    padding: 4vh 2vw;
+    align-items: center;
+
+    text-decoration: none;
+    text-align: left;
+
+    img {
+        height: 12vh;
+        &.circle {
+            border-radius: 50%;
+        }
+    }
+
+    blockquote {
+        margin: {
+            top: 0vh;
+            bottom: 0vh;
+            left: 1vw;
+            right: 0vw;
+        }
+        border-left: 4px solid $primary-color;
+        padding-left: 20px;
+        transition-duration: $scale-transition-time;
+    }
+
+    .section-link {
+        &:hover {
+            cursor: pointer;
+            color: $primary-tint-color;
+            text-decoration: underline;
+            padding-left: 40px;
+        }
+    }
+
+    a {
+        color: $text-color;
+    }
+}
+
+.section-wrapper {
+    display: inline flex;
+    align-items: center;
+    align-content: center;
+    margin: 2vh 8vw;
+    padding: 4vh 2vw;
+    width: 80%;
+    text-decoration: none;
+}
+
+.subsection-wrapper {
+    @extend .section-wrapper;
+    padding: 0vh 2vw;
+}
+
+.modal {
+    display: none;
+    align-content: center;
+    position: fixed;
+    z-index: 20;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    opacity: 0;
+    display: block;
+    margin: auto;
+    height: auto;
+    max-height: 70vh;
+    max-width: 80%;
+    object-fit: contain;
+    animation: fade-in 200ms linear forwards;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    opacity: 0;
+    font-size: $normal-text;
+    margin: auto;
+    display: block;
+    width: 50%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 6vh 0;
+    animation: fade-in 600ms linear forwards;
+}
+
+@keyframes zoom {
+    from { transform: scale(0) }
+    to { transform: scale(1) }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 5vh;
+    right: 3vw;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: $scale-transition-time;
+
+    &:hover, &:focus {
+        color: $accent-color;
+        text-decoration: none;
+        transform: scale(125%, 125%);
+        cursor: pointer;
+    }
+}
+
+.gallery-images {
+    display: grid;
+    border-radius: $border-radius;
+    grid-template-columns: auto;
+    gap: 0.5vw;
+    grid-auto-rows: auto;
+    grid-template-areas:
+        "a b e e"
+        "c d e e";
+    align-items: center;
+    align-content: center;
+    overflow: hidden;
+    margin: auto;
+    
+    img {
+        transition-duration: $scale-transition-time;
+        &:hover {
+            transform: scale(105%, 105%);
+        }
+    }
+
+    .small {
+        width: 10vw;
+    }
+
+    .image-a {
+        @extend .small;
+        grid-area: a;
+    }
+
+    .image-b {
+        @extend .small;
+        grid-area: b;
+    }
+
+    .image-c {
+        @extend .small;
+        grid-area: c;
+    }
+
+    .image-d {
+        @extend .small;
+        grid-area: d;
+    }
+
+    .image-e {
+        grid-area: e;
+        width: 20.5vw;
+    }
+}
+
+.embed {
+    display: block;
+    align-items: center;
+    margin: auto;
+    padding: 4vh 2vw;
+    width: 60%;
+    height: auto;
+    transition-duration: $scale-transition-time;
+    text-align: left; 
+    text-decoration: none;
+    border-radius: $border-radius;
+
+    img {
+        width: 60%;
+    }
+
+    &:hover {
+        transform: scale(105%, 105%);
+        background-color: $secondary-trans-color;
+    }
+}
+
+.center {
+    margin: auto;
+    align-self: center;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+
+@keyframes squish {
+    0% { transform: scale(100%, 100%); }
+    50% { transform: scale(96%, 96%); }
+    100% { transform: scale(100%, 100%); }
+}

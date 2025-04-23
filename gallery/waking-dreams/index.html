@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Imports-->
 		<link rel="stylesheet" type="text/css" href="/css/default.css">
+		<link rel="stylesheet" type="text/css" href="waking-dreams.css">
 		<link rel="stylesheet" type="text/css" href="/css/light-mode.css">
 		<!-- Scripts -->
 		<script src="/js/htmx.min.js"></script>
@@ -14,6 +15,7 @@
 		<link rel="preload" href="/fonts/Yeah_But_When_I_Do_It.otf" as="font" type="font/otf" crossorigin="anonymous">
 		<link rel="preload" href="/fonts/Sedgwick_Ave_Display.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 		<link rel="preload" href="/fonts/Elizabeth_Handwriting.otf" as="font" type="font/otf" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/fonts/VCR_OSD_MONO.ttf" as="font" type="font/ttf" crossorigin="anonymous">
         <!-- Open Graph Tags -->
         <meta property="og:title" content="Waking Dreams - KawaiiBakemono">
         <meta property="og:description" content="My official portfolio website! View my work, see my contributions, or get in contact with me!">
@@ -21,13 +23,175 @@
 		<link rel="icon" type="image/svg" href="/icons/cat.svg">
 		<title>Waking Dreams - KawaiiBakemono</title>
 	</head>
-	<body>
-		<div id="moveable-background"></div>
+	<body class="wrapper">
+        <!-- Audio for my stupid exploding images -->
+        <audio id="setfire-audio">
+            <source src="/audio/flash_fire_ignite.ogg" type="audio/ogg"> Your browser does not support the audio element. Womp womp.
+        </audio>
+        <audio loop id="onfire-audio">
+            <source src="/audio/on_fire.wav" type="audio/wav"> Your browser does not support the audio element. Womp womp.
+        </audio>
+        <audio id="explosion-audio">
+            <source src="/audio/deltarune-explosion.ogg" type="audio/ogg"> Your browser does not support the audio element. Womp womp.
+        </audio>
+        <!-- Modal for images -->
+        <div id="modal" class="modal">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="modal-img">
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+          </div>
+		<div id="moveable-background" style="background-image: url('/img/rpgmaker.png')"></div>
         <div hx-get="/html/template-header.html" hx-trigger="load"></div>
-        <main class="construction-notice">
-            <h1 class="neon-text">Waking Dreams</h1>
-            <h2>Oops! Looks like this page is under construction!</h2>
-            <img src="/img/Under_Construction.png" alt="Under Construction!">
+        <main>
+            <img class="title-img" src="/img/Waking_Dreams-logo.png" alt="Waking Dreams">
+            <!-- Developer Showcase -->
+            <div class="devs-wrapper">
+                <div class="developer-showcase">
+                    <img src="profile-DreamingCassette.png" alt="">
+                    <div>
+                        <h3 class="gradient-text">DreamingCassette</h3>
+                        <blockquote>Lead Developer / Artist</blockquote>
+                    </div>
+                </div>
+                <div class="developer-showcase">
+                    <img class="circle" src="profile-KawaiiBakemono.png" alt="">
+                    <div>
+                        <h3 class="gradient-text">KawaiiBakemono</h3>
+                        <a href="#plugins"><blockquote class="section-link">Plugin Programmer</blockquote></a>
+                        <a href="#logo-design"><blockquote class="section-link">Logo Designer</blockquote></a>
+                    </div>
+                </div>
+            </div>
+            <!-- About the Project -->
+            <section id="about" class="section-wrapper">
+                <iframe title="" width="420" height="315" src="https://www.youtube.com/embed/P1tKbmveFOk"></iframe>
+                <div class="desc-wrapper">
+                    <h2 class="gallery-h2 neon-text">About the Project</h2>
+                    <blockquote class="gallery-blockquote left">Waking Dreams is an RPG Maker game lead by close friend,
+                        DreamingCassette. The game follows a troubled young girl, Aina, who's hometown has fallen
+                        under a mysterious illness, causing many to go into a strange coma. It's up to her to get to the
+                        bottom of it, for better or for worse.
+                    </blockquote>
+                    <blockquote class="gallery-blockquote left">I've been a part of the game's development from the very
+                        beginning, being chosen as one of the select few to play the very first alpha of the game all the
+                        way back at the beginning of 2024.
+                    </blockquote>
+                </div>
+            </section>
+            <!-- Plugins -->
+            <section id="plugins" class="section-wrapper">
+                <div class="desc-wrapper right">
+                    <h2 class="gallery-h2 neon-text">Plugins</h2>
+                    <blockquote class="gallery-blockquote right">As of writing this, I've created 2 custom JavaScript
+                        plugins for the game at the request of DreamingCassette. I made one for the game's title screen,
+                        and another that adds customizeable borders.
+                    </blockquote>
+                </div>
+                <div class="explosive">
+                    <img id="jsimg" class="display-img-medium base-image" src="/img/JavaScript-logo.png" alt="" 
+                    onclick="clickExplosion('jsimg', 'onfirejs', 'explodejs')" data-counter="0">
+                    <!-- These are deferred so they don't appear for a split second when the page is loading -->
+                    <img defer id="onfirejs" class="display-img-medium overlay-image" src="/img/onfire.gif" alt="" 
+                    onclick="clickExplosion('jsimg', 'onfirejs', 'explodejs')" data-counter="0">
+                    <img defer id="explodejs" class="display-img-medium explosion-image" src="/img/the_explosion.gif" alt="" 
+                    onclick="clickExplosion('jsimg', 'onfirejs', 'explodejs')" data-counter="0">
+                </div>
+            </section>
+            <!-- Dynamic Title Screen Plugin -->
+            <section class="subsection-wrapper">
+                <div class="explosive">
+                    <img id="title-screen-img" class="display-img-large base-image" src="Waking_Dreams-title_screen.webp" alt="" 
+                    onclick="clickExplosion('title-screen-img', 'title-screen-onfire', 'title-screen-explode')" data-counter="0">
+                    <!-- These are deferred so they don't appear for a split second when the page is loading -->
+                    <img defer id="title-screen-onfire" class="display-img-medium overlay-image" src="/img/onfire.gif" alt="" 
+                    onclick="clickExplosion('title-screen-img', 'title-screen-onfire', 'title-screen-explode')" data-counter="0">
+                    <img defer id="title-screen-explode" class="display-img-medium explosion-image" src="/img/the_explosion.gif" alt="" 
+                    onclick="clickExplosion('title-screen-img', 'title-screen-onfire', 'title-screen-explode')" data-counter="0">
+                </div>
+                <div class="desc-wrapper left">
+                    <h3 class="gradient-text">Dynamic Title Screen Plugin</h3>
+                    <blockquote class="gallery-blockquote left">The title screen was a bit bland, so given a concept of
+                        DreamingCassette's vision for a more fleshed-out one, I went to work creating a custom plugin for
+                        her to use in-engine.
+                    </blockquote>
+                    <blockquote class="gallery-blockquote left">The plugin allows for multiple layers of images, all of
+                        which can be adjusted, scaled, parallaxed, and even animated using image atlases. Not only that,
+                        but the title screen can be changed instantly in-game with the use of RPG Maker events to coencide
+                        with the game's story, which will then be saved to a JSON file that's loaded in when the game boots.
+                    </blockquote>
+                </div>
+            </section>
+            <!-- Dynamic Borders Screen Plugin -->
+            <div class="subsection-wrapper">
+                <div class="desc-wrapper right">
+                    <h3 class="gradient-text">Dynamic Borders Plugin</h3>
+                    <blockquote class="gallery-blockquote right">Since most RPG Maker games (including this one) don't use
+                        a 16:9 aspect ratio, it leaves boring black borders on either side of the game window. To spice
+                        it up, I added in the ability to use custom images for borders to fill in that void. While simpler,
+                        these too can be dynamically changed in-game with the use of events.
+                    </blockquote>
+                </div>
+            </div>
+            <div class="screen-wrapper">
+                <img id="character-img" class="unselectable" onclick="changeImage()" src="/img/Aina_Neutral.png" alt="">
+            </div>
+            <!-- Logo Design -->
+            <section id="logo-design" class="section-wrapper">
+                <div class="desc-wrapper left">
+                    <h2 class="gallery-h2 neon-text">Logo Design</h2>
+                    <blockquote class="gallery-blockquote left">Unsatisfied with her current logo, DreamingCassette
+                        asked me to redesign the logo. It went through a number of iterations, but we eventually
+                        came to a consensus on the design together.
+                    </blockquote>
+                </div>
+            </section>
+            <section class="subsection-wrapper">
+                <div class="captioned-image">
+                    <img id="original" class="display-img-focused" src="logos/original.png" alt="The original logo" onclick="galleryImage('original')">
+                    <p class="caption">The original logo</p>
+                    <img id="concepts-1" class="display-img-focused" src="logos/concepts-1.png" alt="First concepts. I was given a few requirements for the design, like a symbol that
+                    represents the game (I chose the tulip)" onclick="galleryImage('concepts-1')">
+                    <p class="caption">First concepts. I was given a few requirements for the design, like a symbol that
+                        represents the game (I chose the tulip).
+                    </p>
+                    <img id="concepts-2" class="display-img-focused" src="logos/concepts-2.png" 
+                    alt="Here I experimented with a smoother style using SVGs, but DreamingCassette wasn't
+                    a fan of the look, so I went back to pixel art. We also settled on using a lavender palette instead
+                    of the red." onclick="galleryImage('concepts-2')">
+                    <p class="caption">Here I experimented with a smoother style using SVGs, but DreamingCassette wasn't
+                        a fan of the look, so I went back to pixel art. We also settled on using a lavender palette instead
+                        of the red.
+                    </p>
+                    <img id="final" class="display-img-focused" src="logos/final.png" alt="After throwing around some more ideas, this is the final logo we settled on." onclick="galleryImage('final')">
+                    <p class="caption">After throwing around some more ideas, this is the final logo we settled on.</p>
+                    <img id="chapter-1" class="display-img-focused" src="logos/chapter-1.png" alt="After throwing around some more ideas, this is the final logo we settled on." onclick="galleryImage('chapter-1')">
+                    <p class="caption">And, since she wanted unique subtitles for the chapters, this is what I came up
+                        with for the first chapter, <b>Nightmares of Life</b>.
+                    </p>
+                </div>
+            </section>
+            <section id="download" class="section-wrapper">
+                <div class="desc-wrapper left">
+                    <h2 class="gallery-h2 neon-text">Game Download</h2>
+                    <blockquote class="gallery-blockquote left">Download the demo for the game <a href="https://dreamingcassette.itch.io/waking-dreams-episode-i-nightmares-of-life" target="_blank">here!</a>
+                    </blockquote>
+                </div>
+            </section>
+            <div class="explosive">
+                <img id="end-img" class="display-img-large base-image" src="/img/Waking_Dreams-thumb.png" alt="" 
+                onclick="clickExplosion('end-img', 'end-onfire', 'end-explode')" data-counter="0">
+                <!-- These are deferred so they don't appear for a split second when the page is loading -->
+                <img defer id="end-onfire" class="display-img-medium overlay-image" src="/img/onfire.gif" alt="" 
+                onclick="clickExplosion('end-img', 'end-onfire', 'end-explode')" data-counter="0">
+                <img defer id="end-explode" class="display-img-medium explosion-image" src="/img/the_explosion.gif" alt="" 
+                onclick="clickExplosion('end-img', 'end-onfire', 'end-explode')" data-counter="0">
+            </div>
+            <p class="small">Warning! Don't click the images too much!</p>
         </main>
+        <div class="spacer"></div>
+        <footer>Copyright ⓒ KawaiiBakemono &amp; DreamingCassette 2025</footer>
 	</body>
 </html>
