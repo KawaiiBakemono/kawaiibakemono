@@ -40,7 +40,18 @@
     }
 }
 
-// ==== GENERIC ====
+// ======== TEXT SELECTION ========
+
+::selection { 
+    color: #fff;
+    background: $accent-color-trans;
+    filter: blur(20px);
+}
+::moz-selection { // code for fucking Firefox
+    color: #fff;
+    background: $accent-color-trans;
+    filter: blur(20px);
+}
 
 // DEBUG PURPOSES ONLY
 // * {
@@ -55,6 +66,8 @@
 //     }
 // }
 
+// ==== GENERIC ====
+
 body {
 	background-color: black;
     text-align: left;
@@ -63,16 +76,84 @@ body {
 
 p {
 	font-size: 18px;
-    line-height: 32px;
+    margin: 1.5vw;
 }
 
 a {
-	color: $accent-color;
+	color: $accent-tint-color;
 	text-decoration-thickness: 1px;
     transition-duration: 100ms;
     
     &:hover {
-        color: $text-color;
+        color: $accent-high-color;
+    }
+}
+
+b {
+    color: $accent-color;
+}
+
+small {
+    font-size: $small-text;
+    color: $accent-color;
+}
+
+blockquote {
+    margin: 2vh 2vh;
+
+    &.left {
+        border-left: 4px solid $primary-color;
+        padding-left: 20px;
+    }
+
+    &.right {
+        border-right: 4px solid $primary-color;
+        padding-right: 20px;
+    }
+}
+
+.standalone-text {
+    filter: drop-shadow(4px 4px 2px #000);
+}
+
+.drop-shadow {
+    filter: drop-shadow(16px 16px 4px #0006);
+}
+
+img {
+    @extend .unselectable;
+    height: auto;
+
+    &.img-xsmall {
+        filter: drop-shadow(16px 16px 4px #0006);
+        max-width: 6vw;
+    }
+
+    &.img-small {
+        filter: drop-shadow(16px 16px 4px #0006);
+        max-width: 12vw;
+    }
+
+    &.img-medium {
+        filter: drop-shadow(16px 16px 4px #0006);
+        max-width: 24vw;
+    }
+
+    &.img-large {
+        max-width: 40vw;
+    }
+
+    &.round {
+        border-radius: $border-radius;
+    }
+
+    &.circle {
+        border-radius: 50%;
+    }
+
+    &.title-img {
+        position: relative;
+        height: 10em;
     }
 }
 
@@ -210,7 +291,7 @@ span.card-tag {
     background-color: $primary-trans-color;
 }
 
-// ==== NAVIGATION/HEADER + FOOTER BAR ====
+// ==== HEADER + FOOTER BAR ====
 
 header {
 	display: flex;
@@ -225,6 +306,23 @@ header {
     }
     margin-left: 1vw;
 }
+
+footer {
+    color: $accent-color;
+    font-size: $small-text;
+    text-align: center;
+    margin-bottom: 4vh;
+}
+
+.screen-wrapper {
+    top: 0; left: 0; 
+    position: fixed; z-index: 10;
+	width: 100vw; height: 100vh;
+	display: flex;
+    pointer-events: none;
+}
+
+// ==== NAVIGATION ====
 
 nav {
     width: 94vw;
@@ -258,23 +356,6 @@ li {
     }
 }
 
-footer {
-    color: $accent-color;
-    font-size: $small-text;
-    text-align: center;
-    margin-bottom: 4vh;
-}
-
-.screen-wrapper {
-    top: 0; left: 0; 
-    position: fixed; z-index: 10;
-	width: 100vw; height: 100vh;
-	display: flex;
-    pointer-events: none;
-}
-
-// ==== NAVIGATION ICONS ====
-
 img.nav-icon, img.nav-icon-clickable {
     aspect-ratio: 1 / 1;
 	height: 28px;
@@ -286,10 +367,61 @@ img.nav-icon-clickable {
 	cursor: pointer;
 }
 
-// img.nav-icon-clickable:hover, img.nav-icon-clickable:focus-visible {
-// 	filter: brightness(53%);
-// 	transition: filter 0.1s;
+// Used to fade out context under the navbar
+// .fading-mask {
+//     width: 100%;
+//     height: 100%;
+//     background-color: #000;
+    
+//     &::after {
+//         position: fixed;
+//         // left: 0;
+//         mask-image: linear-gradient(to bottom, white, transparent);
+//         mask-size: 20vh;
+//         height: 20%;
+//         mask-clip: view-box;
+//         border: 1px dashed #006eff80;
+//     }
 // }
+
+// ==== NAVIGATION TOOLTIPS ====
+
+.expanding-tooltip {
+    text-decoration: none;
+    color: $text-color;
+
+    display: inline-flex;
+    height: 42px;
+    width: 44px;
+    padding: 4px;
+
+    align-self: center;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 24px;
+
+    transition: width 300ms ease-in-out 0s, background-color 300ms linear 200ms;
+
+    &:hover, &:focus-visible {
+        width: calc-size(fit-content, size);
+        position: relative;
+        padding-right: 12px;
+        background-color: $primary-trans-color;
+        transition: width 300ms ease-in-out 0s, background-color 100ms linear 0s;
+    }
+    
+    &:focus-visible {
+        outline: 1px solid $primary-trans-color;
+        outline-offset: 4px;
+    }
+
+    &::after {
+        content: attr(tooltip);
+        margin-left: 8px;
+        animation: fade-in 600ms linear forwards;
+    }    
+}
 
 // ==== BUTTONS ====
 
@@ -412,36 +544,12 @@ h3.gallery-h3 {
     }
 }
 
-blockquote.gallery-blockquote {
-    margin: 2vh 2vh;
-
-    &.left {
-        border-left: 4px solid $primary-color;
-        padding-left: 20px;
-    }
-
-    &.right {
-        border-right: 4px solid $primary-color;
-        padding-right: 20px;
-    }
+.description-wrapper-medium {
+    width: 50rem;
 }
 
-img.gallery-img {
-    max-width: 24vw;
-    max-height: 32vh;
-    border-radius: $border-radius;
-    // box-shadow: 0 0 2vh $background-color;
-
-    &:nth-child(odd) {
-        margin-right: 10vh;
-    }
-    &:nth-child(even) {
-        margin-left: 10vh;
-    }
-}
-
-.description-wrapper {
-    width: 60vw;
+.description-wrapper-small {
+    width: 30rem;
 }
 
 h1.page-title {
@@ -457,7 +565,7 @@ h1.page-title {
     }
 }
 
-// ==== FUN STUFF ====
+// ======== BACKGROUND IMAGE ========
 
 #moveable-background {
     background-size: cover;
@@ -480,56 +588,62 @@ h1.page-title {
 	z-index: -1;
 }
 
-.gradient-text {
-    background: linear-gradient(90deg, $primary-tint-color 0%, $accent-color 100%);
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
-}
+#parallax-background {
+    background-image: url('/gallery/waking-dreams/Space_BG.png'); // this is just the default image
+    width: 200%;
+    height: 200vh;
+    opacity: 60%;
+    background-position: bottom;
+    position: fixed;
 
-.neon-text {
-	animation: pulsate-neon 2.5s infinite alternate;
-}
+    top: -100%;
+    left: -100%;
 
+    animation: scroll 60s linear infinite;
+    
+	z-index: -2;
+}
 
 // ====== MODAL POPUP ======
 
 .modal {
     display: none;
+    align-content: center;
     position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: $secondary-trans-color;
+    z-index: 20;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    border-radius: $border-radius;
-    width: 80%;
+    opacity: 0;
+    display: block;
+    margin: auto;
+    height: auto;
+    max-height: 70vh;
+    max-width: 80%;
+    object-fit: contain;
+    animation: fade-in 200ms linear forwards;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    
-    &:hover, &:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
+#caption {
+    opacity: 0;
+    font-size: $normal-text;
+    margin: auto;
+    display: block;
+    width: 50%;
+    max-width: 700px;
+    text-align: center;
+    color: #ffffff;
+    padding: 6vh 0;
+    animation: fade-in 600ms linear forwards;
+    filter: drop-shadow(16px 16px 4px #0006);
 }
-
 
 // ==== MODIFIER CLASSES ====
 
@@ -547,6 +661,31 @@ h1.page-title {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.hoverable {
+    cursor: pointer;
+    transition-duration: $scale-transition-time;
+
+    &:hover {
+        transform: scale(105%, 105%);
+    }
+}
+
+.zoom-in {
+    cursor: zoom-in;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, $primary-tint-color 0%, $accent-color 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.neon-text {
+	animation: pulsate-neon 2.5s infinite alternate;
 }
 
 .spacer {
@@ -594,15 +733,16 @@ h1.page-title {
 input:checked + .slider {
 	background-color: $primary-color;
 }
+
 input:focus + .slider {
 	box-shadow: 0 0 1px $primary-color;
 }
+
 input:checked + .slider:before {
 	-webkit-transform: translateX(32px);
 	-ms-transform: translateX(32px);
 	transform: translateX(32px);
 }
-
 
 // ==== FULLSCREEN OVERLAY ====
 
@@ -630,47 +770,6 @@ input:checked + .slider:before {
 #fullover.show {
 	visibility: visible;
 	opacity: 1;
-}
-
-// ==== TOOLTIPS ====
-
-.expanding-tooltip {
-    text-decoration: none;
-    color: $text-color;
-
-    display: inline-flex;
-    height: 42px;
-    width: 44px;
-    padding: 4px;
-    align-self: center;
-    border-radius: 24px;
-    align-items: center;
-    white-space: nowrap;
-    overflow: hidden;
-    transition: width 300ms ease-in-out 0s, background-color 300ms linear 200ms;
-
-    &:hover, &:focus-visible {
-        width: calc-size(fit-content, size);
-        position: relative;
-        padding-right: 12px;
-        background-color: $primary-trans-color;
-        transition: width 300ms ease-in-out 0s, background-color 100ms linear 0s;
-    }
-    
-    &:focus-visible {
-        outline: 1px solid $primary-trans-color;
-        outline-offset: 4px;
-    }
-
-    &:active {
-        opacity: 0.9;
-    }
-
-    &::after {
-        content: attr(tooltip);
-        margin-left: 8px;
-        animation: fade-in 600ms linear forwards;
-    }    
 }
 
 // ==== ANIMATIONS ====
@@ -703,4 +802,31 @@ input:checked + .slider:before {
 @keyframes fade-in {
     0% { opacity: 0; }
     100%   { opacity: 1; }
+}
+
+@keyframes scroll {
+    100% { transform: translate(768px, 768px); }
+}
+
+.snake span { 
+    display: inline flex;
+    animation: snake 0.5s ease-in-out infinite alternate; 
+
+    &:nth-child(1) {
+        animation-delay: 0s;
+    }
+    &:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    &:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+    &:nth-child(4) {
+        animation-delay: 0.6s;
+    }
+}
+
+@keyframes snake {
+    0% { transform: translateY(4px); }
+    100% { transform: translateY(-4px); }
 }

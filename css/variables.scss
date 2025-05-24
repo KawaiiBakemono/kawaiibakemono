@@ -5,10 +5,15 @@ $faded-text-color: #f8f8ff44;
 $background-color: #0f0408;
 $primary-color: #a80ba0;
 $primary-tint-color: #f366ec;
+$primary-highlight-color: #ff9dfa;
 $primary-trans-color: #a80ba066;
 $secondary-color: #6b1f83;
+$secondary-tint-color: #c43dee;
 $secondary-trans-color: #6d1f8466;
-$accent-color: #df1283;
+$accent-color: #f53ea2;
+$accent-color-trans: #f53ea266;
+$accent-tint-color: #f86fbb;
+$accent-high-color: #faa5d4;
 $neon-dim-color: #fff0f670;
 
 $vw-multiplier: 0.05vw;
@@ -21,7 +26,7 @@ $default-font: 'Montserrat Alternates';
 
 $scale-transition-time: 0.3s;
 $border-radius: 25px;
-$box-shadow: 0 0 32px $secondary-trans-color;;
+$box-shadow: 0 0 32px $secondary-trans-color;
 
 // ==== CUSTOM FONTS ====
 
@@ -44,4 +49,22 @@ $box-shadow: 0 0 32px $secondary-trans-color;;
 @font-face {
 	font-family: 'VCR OSD MONO';
 	src: url('/fonts/VCR_OSD_MONO.ttf') format('truetype');
+}
+
+// ==== ANIMATIONS ====
+
+@keyframes zoom {
+    from { transform: scale(0) }
+    to { transform: scale(1) }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes squish {
+    0% { transform: scale(100%, 100%); }
+    50% { transform: scale(96%, 96%); }
+    100% { transform: scale(100%, 100%); }
 }

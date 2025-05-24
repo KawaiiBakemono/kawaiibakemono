@@ -23,13 +23,6 @@
 img {
     position: relative;
     z-index: 1;
-    // margin: auto;
-
-    &.title-img {
-        position: relative;
-        height: 10em;
-        margin-top: -5vh;
-    }
 
     &.display-img-medium {
         display: block;
@@ -37,6 +30,7 @@ img {
         height: auto;
         border-radius: $border-radius;
         transition-duration: $scale-transition-time;
+        filter: drop-shadow(16px 16px 4px #0006);
 
         &:hover {
             transform: scale(105%, 105%);
@@ -44,30 +38,11 @@ img {
     }
 
     &.display-img-large {
-        display: block;
+        @extend .display-img-large;
         max-width: 24vw;
-        height: auto;
-        border-radius: $border-radius;
-        transition-duration: $scale-transition-time;
-
-        &:hover {
-            transform: scale(105%, 105%);
-        }
     }
 
-    &.display-img-focused {
-        max-width: 40vw;
-        height: auto;
-        border-radius: $border-radius;
-        transition-duration: $scale-transition-time;
-        align-self: center;
-
-        &:hover {
-            transform: scale(105%, 105%);
-        }
-    }
-
-    &.overlay-image {
+    &.img-fire {
         display: block;
         margin: auto;
         position: absolute;
@@ -80,11 +55,11 @@ img {
         scale: 1.5;
         height: auto;
         z-index: 2;
-        visibility: hidden;
+        pointer-events: none;
     }
 
-    &.explosion-image {
-        @extend .overlay-image;
+    &.img-explosion {
+        @extend .img-fire;
         scale: 3.0;
         z-index: 3;
     }
@@ -100,22 +75,18 @@ img {
     }
 }
 
-.small {
-    font-size: $small-text;
-}
-
 .captioned-image {
-    display: block;
+    display: flexbox;
     align-items: center;
     flex-wrap: wrap;
-    margin: auto;
     text-align: center;
     width: 60%;
+    filter: drop-shadow(16px 16px 4px #0006);
 
     p {
         margin: {
             top: 4vh;
-            bottom: 10vh;
+            bottom: auto;
         }
     }
 }
@@ -142,6 +113,7 @@ h3 {
     margin: {
         left: 1vw;
         right: 1vw;
+        top: 2vh;
         bottom: 2vh;
     }
 }
@@ -151,67 +123,37 @@ main {
 }
 
 iframe {
+    width: 32rem;
+    height: auto;
     aspect-ratio: 4 / 3;
+
     border-radius: $border-radius;
     border: none;
+    filter: drop-shadow(16px 16px 4px #0006);
 }
 
 .left {
-    text-align: left;
+    margin-left: 4vw;
 }
 
 .right {
-    text-align: right;
-}
-
-blockquote {
-    font-size: $normal-text;
-
-    &.left {
-        border-left: 4px solid $primary-color;
-        padding-left: 20px;
-    }
-
-    &.right {
-        border-right: 4px solid $primary-color;
-        padding-right: 20px;
-    }
-}
-
-.desc-wrapper {
-    margin: auto;
-    width: 60%;
-}
-
-.devs-wrapper {
-    align-items: center;
-    line-height: 1.5rem;
-    display: inline flex;
-	flex-direction: row; 
-	flex-wrap: nowrap;
-    justify-content: center;
-    width: 80%;
+    margin-right: 4vw;
 }
 
 .developer-showcase {
     display: inline flex;
-    width: 30vw;
-
+    flex-wrap: nowrap;
+    
     margin: 0vh 2vw;
-    padding: 4vh 2vw;
     align-items: center;
-
+    width: 30vw;
+    justify-content: center;
+    
     text-decoration: none;
     text-align: left;
 
-    img {
-        height: 12vh;
-        &.circle {
-            border-radius: 50%;
-        }
-    }
-
     blockquote {
+        display: block;
         margin: {
             top: 0vh;
             bottom: 0vh;
@@ -220,10 +162,15 @@ blockquote {
         }
         border-left: 4px solid $primary-color;
         padding-left: 20px;
-        transition-duration: $scale-transition-time;
     }
-
+    
+    a {
+        color: $text-color;
+    }
+    
     .section-link {
+        transition-duration: $scale-transition-time;
+        
         &:hover {
             cursor: pointer;
             color: $primary-tint-color;
@@ -232,74 +179,25 @@ blockquote {
         }
     }
 
-    a {
-        color: $text-color;
+    div {
+        width: 20vw;
     }
 }
 
-.section-wrapper {
+section {
     display: inline flex;
     align-items: center;
     align-content: center;
+    justify-content: center;
     margin: 2vh 8vw;
     padding: 4vh 2vw;
-    width: 80%;
+    width: 70vw;
     text-decoration: none;
 }
 
-.subsection-wrapper {
-    @extend .section-wrapper;
+.subsection {
+    @extend section;
     padding: 0vh 2vw;
-}
-
-.modal {
-    display: none;
-    align-content: center;
-    position: fixed;
-    z-index: 20;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Modal Content (Image) */
-.modal-content {
-    opacity: 0;
-    display: block;
-    margin: auto;
-    height: auto;
-    max-height: 70vh;
-    max-width: 80%;
-    object-fit: contain;
-    animation: fade-in 200ms linear forwards;
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-}
-
-/* Caption of Modal Image (Image Text) - Same Width as the Image */
-#caption {
-    opacity: 0;
-    font-size: $normal-text;
-    margin: auto;
-    display: block;
-    width: 50%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 6vh 0;
-    animation: fade-in 600ms linear forwards;
-}
-
-@keyframes zoom {
-    from { transform: scale(0) }
-    to { transform: scale(1) }
-}
-
-@keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 /* The Close Button */
@@ -320,93 +218,78 @@ blockquote {
     }
 }
 
-.gallery-images {
-    display: grid;
-    border-radius: $border-radius;
-    grid-template-columns: auto;
-    gap: 0.5vw;
-    grid-auto-rows: auto;
-    grid-template-areas:
-        "a b e e"
-        "c d e e";
-    align-items: center;
-    align-content: center;
-    overflow: hidden;
-    margin: auto;
-    
-    img {
-        transition-duration: $scale-transition-time;
-        &:hover {
-            transform: scale(105%, 105%);
-        }
-    }
-
-    .small {
-        width: 10vw;
-    }
-
-    .image-a {
-        @extend .small;
-        grid-area: a;
-    }
-
-    .image-b {
-        @extend .small;
-        grid-area: b;
-    }
-
-    .image-c {
-        @extend .small;
-        grid-area: c;
-    }
-
-    .image-d {
-        @extend .small;
-        grid-area: d;
-    }
-
-    .image-e {
-        grid-area: e;
-        width: 20.5vw;
-    }
-}
-
-.embed {
+// Used for showing off the Dynamic Title Screen layers
+.layers-demo {
+    margin: 8vh auto;
+    padding: 4vw;
     display: block;
-    align-items: center;
-    margin: auto;
-    padding: 4vh 2vw;
-    width: 60%;
-    height: auto;
-    transition-duration: $scale-transition-time;
-    text-align: left; 
-    text-decoration: none;
-    border-radius: $border-radius;
+    position: relative;
+    filter: none;
 
-    img {
-        width: 60%;
+    #layer-0 {
+        margin: auto;
+        transition-duration: $scale-transition-time;
+        position: relative;
+        top: 5px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    #layer-1 {
+        @extend #layer-0;
+        position: absolute;
+        z-index: 2;
+    }
+
+    #layer-2 {
+        @extend #layer-1;
+        z-index: 3;
+    }
+
+    #layer-3 {
+        @extend #layer-1;
+        z-index: 4;
     }
 
     &:hover {
-        transform: scale(105%, 105%);
-        background-color: $secondary-trans-color;
+        #layer-0 {
+            transform: translate(-6rem, -6rem);
+        }
+        #layer-1 {
+            transform: translate(-3rem, -3rem);
+        }
+        #layer-2 {
+            transform: translate(3rem, 3rem);
+        }
+        #layer-3 {
+            transform: translate(6rem, 6rem);
+        }
     }
 }
 
-.center {
-    margin: auto;
-    align-self: center;
-}
+.window {
+    background: $secondary-trans-color;
+    backdrop-filter: blur(10px);
+    border: 2px solid $primary-tint-color;
+    border-radius: 0.5rem;
+    filter: drop-shadow(16px 16px 4px #000);
 
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px) {
-    .modal-content {
-        width: 100%;
+    .titlebar {
+        padding: 0;
+        background: $primary-trans-color;
+        border-top-left-radius: 0.2rem;
+        border-top-right-radius: 0.2rem;
+
+        p {
+            text-align: right;
+            margin: 0;
+            padding: 0.5vh 0.7vw;
+        }
     }
 }
 
-@keyframes squish {
-    0% { transform: scale(100%, 100%); }
-    50% { transform: scale(96%, 96%); }
-    100% { transform: scale(100%, 100%); }
+.big-bottom {
+    margin-bottom: 10vh !important;
 }

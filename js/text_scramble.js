@@ -7,23 +7,29 @@ class TextScramble {
     }
     
     setText(newText) {
-        const transitionLength = 100; // how long it takes to get to the next string
-        const oldText = this.el.innerText;
-        const length = Math.max(oldText.length, newText.length);
-        const promise = new Promise((resolve) => this.resolve = resolve);
-
-        this.queue = [];
-        for (let i = 0; i < length; i++) {
-            const from = oldText[i] || '';
-            const to = newText[i] || '';
-            const start = Math.floor(Math.random() * transitionLength);
-            const end = start + Math.floor(Math.random() * transitionLength);
-            this.queue.push({ from, to, start, end });
+        try {            
+            const transitionLength = 100; // how long it takes to get to the next string
+            const oldText = this.el.innerText;
+            const length = Math.max(oldText.length, newText.length);
+            const promise = new Promise((resolve) => this.resolve = resolve);
+    
+            this.queue = [];
+            for (let i = 0; i < length; i++) {
+                const from = oldText[i] || '';
+                const to = newText[i] || '';
+                const start = Math.floor(Math.random() * transitionLength);
+                const end = start + Math.floor(Math.random() * transitionLength);
+                this.queue.push({ from, to, start, end });
+            }
+            cancelAnimationFrame(this.frameRequest);
+            this.frame = 0;
+            this.update();
+            return promise;
+        } catch (error) {
+            if (error instanceof TypeError) {
+                console.log(error.message);
+            }
         }
-        cancelAnimationFrame(this.frameRequest);
-        this.frame = 0;
-        this.update();
-        return promise;
     }
 
     update() {
@@ -89,16 +95,22 @@ const timings = [
 const element = document.getElementById("scrambled-header");
 const effects = new TextScramble(element);
 
-let counter = 0;
-const next = () => {
-    effects.setText(phrases[counter]).then(() => {
-        // This check is just a fallback incase I fuck up the timings/phrases arrays
-        if (!(counter > timings.length)) {
-            setTimeout(next, timings[counter]);
-        } else {
-            setTimeout(next, defaultTiming);
-        }
-    })
-    counter = (counter + 1) % phrases.length;
-} 
-next();
+try {
+    let counter = 0;
+    const next = () => {
+        effects.setText(phrases[counter]).then(() => {
+            // This check is just a fallback incase I fuck up the timings/phrases arrays
+            if (!(counter > timings.length)) {
+                setTimeout(next, timings[counter]);
+            } else {
+                setTimeout(next, defaultTiming);
+            }
+        })
+        counter = (counter + 1) % phrases.length;
+    } 
+    next();
+} catch (error) {
+    if (error instanceof TypeError) {
+        console.log(error.message);
+    }
+}

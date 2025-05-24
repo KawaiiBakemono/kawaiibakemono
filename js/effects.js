@@ -1,22 +1,23 @@
-function moveableBackground() {
+function backgroundFollowMouse() {
     const background = document.getElementById("moveable-background");
     const sensitivity = 15;
 
     document.addEventListener("mousemove", function(el) {
-        var x = el.clientX / sensitivity;
-        var y = el.clientY / sensitivity;
-        background.style.transform = `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`;
+        setTimeout(() => {
+            var x = el.clientX / sensitivity;
+            var y = el.clientY / sensitivity;
+            background.style.transform = `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`;
+        }, "10"); // No reason to run it every millisecond
     });
-}
-
-moveableBackground();
+} backgroundFollowMouse();
 
 // ======== Clickable Aina ========
 
 var i = 0;
+var squeak = new Audio("/audio/squeak.ogg");
+var images = ["/img/Aina_Looktoside.png", "/img/Aina_Sweat.png", "/img/Aina_Gross.png", "/img/Aina_Neutral.png"]
 
 function changeImage() {
-    var images = ["/img/Aina_Looktoside.png", "/img/Aina_Sweat.png", "/img/Aina_Gross.png", "/img/Aina_Neutral.png"]
     let img = document.getElementById("character-img");
     img.src = images[i];
     if (i > 2) {
@@ -24,7 +25,35 @@ function changeImage() {
     } else {
         i++;
     }
+    squeak.cloneNode().play();
+    // document.getElementById("aina-squeak").play();
 }
+
+function selectSFX() {
+    document.getElementById('select-sfx').play();
+}
+
+var a = document.getElementsByClassName('snake');
+function animateSequence() {
+    for (var i = 0; i < a.length; i++) {
+        var $this = a[i];
+        var letter = $this.innerHTML;
+        letter = letter.trim();
+        var str = '';
+        var delay = 100;
+        for (l = 0; l < letter.length; l++) {
+            if (letter[l] != ' ') {
+                str += '<span>' + letter[l] + '</span>';
+            } else
+                str += letter[l];
+        }
+        $this.innerHTML = str;
+    }
+}
+
+// animateSequence();
+
+
 
 // ======== CLICK EXPLOSION ========
 
@@ -95,5 +124,6 @@ function galleryImage(image) {
 var close = document.getElementsByClassName("close")[0];
 
 close.onclick = function() {
+    document.getElementById('cancel-sfx').play();
     modal.style.display = "none";
 }

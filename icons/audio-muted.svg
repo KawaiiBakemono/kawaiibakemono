@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 0.48 0.48"
+   fill="none"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="audio-muted.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xml:space="preserve"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1" /><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#333333"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#000000"
+     inkscape:zoom="37.76"
+     inkscape:cx="6.1308263"
+     inkscape:cy="7.8125"
+     inkscape:current-layer="svg1" /><path
+     d="M 10,5 C 9.734375,5 9.480469,5.105469 9.292969,5.292969 c -0.390625,0.390625 -0.390625,1.023437 0,1.414062 L 10.585938,8 9.292969,9.292969 c -0.390625,0.390625 -0.390625,1.023437 0,1.414062 0.390625,0.390625 1.023437,0.390625 1.414062,0 L 12,9.414062 l 1.292969,1.292969 c 0.390625,0.390625 1.023437,0.390625 1.414062,0 0.390625,-0.390625 0.390625,-1.023437 0,-1.414062 L 13.414062,8 14.707031,6.707031 c 0.390625,-0.390625 0.390625,-1.023437 0,-1.414062 C 14.519531,5.105469 14.265625,5 14,5 13.734375,5 13.480469,5.105469 13.292969,5.292969 L 12,6.585938 10.707031,5.292969 C 10.519531,5.105469 10.265625,5 10,5 Z m 0,0"
+     id="path2-6"
+     transform="matrix(0.031,0,0,0.031,-0.0035,-0.00812131)"
+     style="fill:#ffffff;fill-opacity:1" /><path
+     d="M 7,1.007812 C 6.703125,1.003906 6.421875,1.132812 6.230469,1.359375 L 3,5 H 2 C 0.90625,5 0,5.84375 0,7 v 2 c 0,1.089844 0.910156,2 2,2 h 1 l 3.230469,3.640625 C 6.441406,14.894531 6.722656,15.003906 7,15 Z"
+     id="path1-3"
+     style="fill:#ffffff;fill-opacity:1"
+     sodipodi:nodetypes="cccsssscccc"
+     transform="matrix(0.03,0,0,0.03,0,-1.173987e-4)" /></svg>
