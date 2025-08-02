@@ -27,7 +27,7 @@ class TextScramble {
             return promise;
         } catch (error) {
             if (error instanceof TypeError) {
-                console.log(error.message);
+                console.error(error.message);
             }
         }
     }
@@ -74,8 +74,7 @@ class TextScramble {
 // Neon Text scramble
 
 const phrases = [
-    "KawaiiBakemono",
-    "Kathryn Beam",
+    "ZephyrBytes",
     "An Artist",
     "A Programmer",
     "A Game Developer",

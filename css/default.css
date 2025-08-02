@@ -130,9 +130,6 @@ small {
   color: #f53ea2;
 }
 
-blockquote {
-  margin: 2vh 2vh;
-}
 blockquote.left {
   border-left: 4px solid #a80ba0;
   padding-left: 20px;
@@ -213,15 +210,15 @@ img.title-img {
   -webkit-text-stroke: 0.01rem rgba(255, 240, 246, 0.4392156863);
 }
 
-.introduction {
+#introduction {
   grid-area: a;
   padding-left: 10%;
 }
-.introduction h1 {
+#introduction h1 {
   font-size: 1.6vw;
   margin-bottom: 2vh;
 }
-.introduction h2 {
+#introduction h2 {
   font-family: "Sedgwick Ave Display", sans-serif;
   font-size: 3vw;
   margin-bottom: 4vh;
@@ -542,13 +539,10 @@ h1.page-title {
   background-image: url("/gallery/waking-dreams/Space_BG.png");
   width: 200%;
   height: 200vh;
-  opacity: 60%;
-  background-position: bottom;
   position: fixed;
-  top: -100%;
-  left: -100%;
-  animation: scroll 60s linear infinite;
   z-index: -2;
+  animation: scroll 60s linear infinite;
+  opacity: 60%;
 }
 
 .modal {
@@ -734,31 +728,54 @@ input:checked + .slider:before {
 }
 @keyframes scroll {
   100% {
-    transform: translate(768px, 768px);
+    background-position: 768px 768px;
   }
 }
-.snake span {
+.wavey-text {
+  margin-top: 4px;
+  margin-bottom: 4px;
   display: inline flex;
-  animation: snake 0.5s ease-in-out infinite alternate;
+  text-decoration: none;
 }
-.snake span:nth-child(1) {
+.wavey-text span {
+  animation: wavey 0.5s ease-in-out infinite alternate;
+}
+.wavey-text:nth-child(1) {
   animation-delay: 0s;
 }
-.snake span:nth-child(2) {
+.wavey-text:nth-child(2) {
   animation-delay: 0.2s;
 }
-.snake span:nth-child(3) {
+.wavey-text:nth-child(3) {
   animation-delay: 0.4s;
 }
-.snake span:nth-child(4) {
+.wavey-text:nth-child(4) {
   animation-delay: 0.6s;
 }
-
-@keyframes snake {
-  0% {
+@keyframes wavey {
+  from {
     transform: translateY(4px);
   }
-  100% {
+  to {
     transform: translateY(-4px);
   }
+}
+.wavey-text :nth-child(5n+0) {
+  animation-delay: -0.2ss;
+}
+
+.wavey-text :nth-child(5n+1) {
+  animation-delay: -0.16ss;
+}
+
+.wavey-text :nth-child(5n+2) {
+  animation-delay: -0.12ss;
+}
+
+.wavey-text :nth-child(5n+3) {
+  animation-delay: -0.08ss;
+}
+
+.wavey-text :nth-child(5n+4) {
+  animation-delay: -0.04ss;
 }/*# sourceMappingURL=default.css.map */

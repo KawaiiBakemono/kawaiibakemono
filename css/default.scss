@@ -99,7 +99,7 @@ small {
 }
 
 blockquote {
-    margin: 2vh 2vh;
+    // margin: 2vh 2vh;
 
     &.left {
         border-left: 4px solid $primary-color;
@@ -199,7 +199,7 @@ img {
     -webkit-text-stroke: 0.01rem $neon-dim-color;
 }
 
-.introduction {
+#introduction {
     grid-area: a;
     padding-left: 10%;
 
@@ -592,16 +592,12 @@ h1.page-title {
     background-image: url('/gallery/waking-dreams/Space_BG.png'); // this is just the default image
     width: 200%;
     height: 200vh;
-    opacity: 60%;
-    background-position: bottom;
     position: fixed;
-
-    top: -100%;
-    left: -100%;
-
+	z-index: -2;
+    
     animation: scroll 60s linear infinite;
     
-	z-index: -2;
+    opacity: 60%;
 }
 
 // ====== MODAL POPUP ======
@@ -805,13 +801,22 @@ input:checked + .slider:before {
 }
 
 @keyframes scroll {
-    100% { transform: translate(768px, 768px); }
+    100% { background-position: 768px 768px; }
 }
 
-.snake span { 
-    display: inline flex;
-    animation: snake 0.5s ease-in-out infinite alternate; 
+$wave-offset: 4px;
+$count : 5;
+$duration: 0.1s;
 
+.wavey-text { 
+    margin-top: $wave-offset;
+    margin-bottom: $wave-offset;
+    display: inline flex;
+    text-decoration: none;
+
+    span {
+        animation: wavey 0.5s ease-in-out infinite alternate; 
+    }
     &:nth-child(1) {
         animation-delay: 0s;
     }
@@ -824,9 +829,21 @@ input:checked + .slider:before {
     &:nth-child(4) {
         animation-delay: 0.6s;
     }
+
+    
+    &:hover {
+    }
 }
 
-@keyframes snake {
-    0% { transform: translateY(4px); }
-    100% { transform: translateY(-4px); }
+@keyframes wavey {
+    from { transform: translateY($wave-offset); }
+    to { transform: translateY(-$wave-offset); }
 }
+
+@for $i from 0 to $count {
+    .wavey-text :nth-child( #{$count}n + #{$i} ) {
+        animation-delay: -#{($count - $i) * 2 * $duration / $count }s;
+        // color: rgba(100 + $i * 20 % 155, 10, 100 + $i * 40 % 55, 1);
+    }
+}
+

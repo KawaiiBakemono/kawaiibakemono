@@ -9,50 +9,51 @@ function backgroundFollowMouse() {
             background.style.transform = `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`;
         }, "10"); // No reason to run it every millisecond
     });
-} backgroundFollowMouse();
+}
+backgroundFollowMouse();
+
 
 // ======== Clickable Aina ========
 
-var i = 0;
 var squeak = new Audio("/audio/squeak.ogg");
-var images = ["/img/Aina_Looktoside.png", "/img/Aina_Sweat.png", "/img/Aina_Gross.png", "/img/Aina_Neutral.png"]
+var ainaIndex = 0;
+var ainaPortraits = ["/img/Aina_LookToSide.png", "/img/Aina_Sweat.png", "/img/Aina_Gross.png", "/img/Aina_Surprise.png", 
+    "/img/Aina_Embarrassed.png", "/img/Aina_DeadInside.png", "/img/Aina_Neutral.png"]
 
 function changeImage() {
     let img = document.getElementById("character-img");
-    img.src = images[i];
-    if (i > 2) {
-        i = 0;
+    img.src = ainaPortraits[ainaIndex];
+    if (ainaIndex > ainaPortraits.length - 2) {
+        ainaIndex = 0;
     } else {
-        i++;
+        ainaIndex++;
     }
     squeak.cloneNode().play();
-    // document.getElementById("aina-squeak").play();
 }
 
 function selectSFX() {
     document.getElementById('select-sfx').play();
 }
 
-var a = document.getElementsByClassName('snake');
-function animateSequence() {
-    for (var i = 0; i < a.length; i++) {
-        var $this = a[i];
-        var letter = $this.innerHTML;
-        letter = letter.trim();
-        var str = '';
-        var delay = 100;
-        for (l = 0; l < letter.length; l++) {
-            if (letter[l] != ' ') {
-                str += '<span>' + letter[l] + '</span>';
-            } else
-                str += letter[l];
-        }
-        $this.innerHTML = str;
-    }
-}
+// var a = document.getElementsByClassName('snake');
+// function animateSequence() {
+//     for (var i = 0; i < a.length; i++) {
+//         var $this = a[i];
+//         var letter = $this.innerHTML;
+//         letter = letter.trim();
+//         var str = '';
+//         var delay = 100;
+//         for (l = 0; l < letter.length; l++) {
+//             if (letter[l] != ' ') {
+//                 str += '<span>' + letter[l] + '</span>';
+//             } else
+//                 str += letter[l];
+//         }
+//         $this.innerHTML = str;
+//     }
+// }
 
 // animateSequence();
-
 
 
 // ======== CLICK EXPLOSION ========
@@ -106,6 +107,7 @@ function createAudioElement(_parent, _file, _loop) {
     
     audio.play();
 }
+
 
 // ======== MODAL ========
 
