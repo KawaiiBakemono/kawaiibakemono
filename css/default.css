@@ -402,7 +402,7 @@ img.nav-icon-clickable {
   animation: fade-in 600ms linear forwards;
 }
 
-.squombus-button {
+.squombus-button, .squombus-button-active {
   border: none;
   border-radius: 1rem 5rem;
   cursor: pointer;
@@ -410,7 +410,7 @@ img.nav-icon-clickable {
   margin-right: 8px;
   transition-duration: 0.3s;
 }
-.squombus-button:hover {
+.squombus-button:hover, .squombus-button-active:hover {
   transform: scale(110%, 110%);
   border-radius: 5rem 1rem;
   background: rgba(168, 11, 160, 0.4);
@@ -431,10 +431,14 @@ img.button-icon {
   border-radius: 25px;
 }
 
-.squombus-button, .card, .small-container {
+.squombus-button, .squombus-button-active, .card, .small-container {
   background-color: rgba(109, 31, 132, 0.4);
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
+}
+
+.squombus-button-active {
+  background-color: rgba(245, 62, 162, 0.4) !important;
 }
 
 .wrapper {
@@ -760,22 +764,10 @@ input:checked + .slider:before {
     transform: translateY(-4px);
   }
 }
-.wavey-text :nth-child(5n+0) {
-  animation-delay: -0.2ss;
+.padding-right {
+  padding-right: 10vw;
 }
 
-.wavey-text :nth-child(5n+1) {
-  animation-delay: -0.16ss;
-}
-
-.wavey-text :nth-child(5n+2) {
-  animation-delay: -0.12ss;
-}
-
-.wavey-text :nth-child(5n+3) {
-  animation-delay: -0.08ss;
-}
-
-.wavey-text :nth-child(5n+4) {
-  animation-delay: -0.04ss;
+.padding-left {
+  padding-left: 10vw;
 }/*# sourceMappingURL=default.css.map */

@@ -44,12 +44,12 @@
 
 ::selection { 
     color: #fff;
-    background: $accent-color-trans;
+    background: $accent-trans-color;
     filter: blur(20px);
 }
 ::moz-selection { // code for fucking Firefox
     color: #fff;
-    background: $accent-color-trans;
+    background: $accent-trans-color;
     filter: blur(20px);
 }
 
@@ -463,6 +463,10 @@ img.button-icon {
     backdrop-filter: blur(20px);
 }
 
+.squombus-button-active {
+	@extend .squombus-button;
+    background-color: $accent-trans-color !important;
+}
 
 // ==== GALLERY ====
 
@@ -830,7 +834,6 @@ $duration: 0.1s;
         animation-delay: 0.6s;
     }
 
-    
     &:hover {
     }
 }
@@ -840,10 +843,10 @@ $duration: 0.1s;
     to { transform: translateY(-$wave-offset); }
 }
 
-@for $i from 0 to $count {
-    .wavey-text :nth-child( #{$count}n + #{$i} ) {
-        animation-delay: -#{($count - $i) * 2 * $duration / $count }s;
-        // color: rgba(100 + $i * 20 % 155, 10, 100 + $i * 40 % 55, 1);
-    }
+.padding-right {
+    padding-right: 10vw;
 }
 
+.padding-left {
+    padding-left: 10vw;
+}

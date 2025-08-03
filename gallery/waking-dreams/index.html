@@ -23,7 +23,7 @@
         <!-- Modal -->
         <div id="modal" class="modal">
             <span class="close">&times;</span>
-            <img id="modal-img" class="modal-content" src=" " alt="">
+            <img oncontextmenu="return false;" id="modal-img" class="modal-content" src=" " alt="">
             <div id="caption"></div>
         </div>
         <audio id="select-sfx">
@@ -35,21 +35,21 @@
             Your browser does not support the audio element. Womp womp.
         </audio>
         <div class="screen-wrapper">
-            <img id="character-img" class="unselectable" onclick="changeImage()" src="/img/Aina_Neutral.png" alt="Aina">
+            <img oncontextmenu="return false;" id="character-img" class="unselectable" onclick="changeImage()" src="/img/Aina_Neutral.png" alt="Aina">
         </div>
         <main class="fading-mask">
-            <img class="title-img" src="logos/final.png" alt="Waking Dreams Logo">
+            <img oncontextmenu="return false;" class="title-img" src="logos/final.png" alt="Waking Dreams Logo">
             <!-- Developer Showcase -->
             <section>
                 <div class="developer-showcase">
-                    <img class="img-xsmall" src="profile-DreamingCassette.png" alt="">
+                    <img oncontextmenu="return false;" class="img-xsmall" src="profile-DreamingCassette.png" alt="">
                     <div>
                         <h3 class="gradient-text">DreamingCassette</h3>
                         <blockquote>Lead Developer / Artist</blockquote>
                     </div>
                 </div>
                 <div class="developer-showcase">
-                    <img class="img-xsmall circle" src="profile-KawaiiBakemono.png" alt="">
+                    <img oncontextmenu="return false;" class="img-xsmall circle" src="profile-KawaiiBakemono.png" alt="">
                     <div>
                         <h3 class="gradient-text">ZephyrBytes</h3>
                         <a href="#plugins"><blockquote class="section-link">Plugin Programmer</blockquote></a>
@@ -85,14 +85,14 @@
                     </p>
                 </div>
                 <div id="jsimg-parent" class="explosive" data-counter="0">
-                    <img id="jsimg" class="img-small round" src="/img/JavaScript-logo.png" alt="JavaScript Logo" 
+                    <img oncontextmenu="return false;" id="jsimg" class="img-small round" src="/img/JavaScript-logo.png" alt="JavaScript Logo" 
                     onclick="clickExplosion('jsimg-parent', 'jsimg')">
                 </div>
             </section>
             <!-- Dynamic Title Screen Plugin -->
             <section class="subsection">
                 <div class="captioned-image">
-                    <img id="title-screen" class="img-medium round hoverable zoom-in" src="Waking_Dreams-title_screen.webp" 
+                    <img oncontextmenu="return false;" id="title-screen" class="img-medium round hoverable zoom-in" src="Waking_Dreams-title_screen.webp" 
                         alt="The title screen when opening the game for the first time." onclick="galleryImage('title-screen'); selectSFX();">
                     <br><p class="standalone-text">The title screen when opening the game for the first time.</p>
                 </div>
@@ -113,10 +113,10 @@
                 </div>
             </section>
             <section id="layers-demo" class="subsection layers-demo">
-                <img id="layer-0" class="img-medium round" src="Parallax_Aina.png" alt="">
-                <img id="layer-1" class="img-medium round" src="Train_Aina.png" alt="">
-                <img id="layer-2" class="img-medium round" src="TV_Overlay.png" alt="">
-                <img id="layer-3" class="img-medium round" src="Title_Aina-layer.png" alt="">
+                <img oncontextmenu="return false;" id="layer-0" class="img-medium round" src="Parallax_Aina.png" alt="">
+                <img oncontextmenu="return false;" id="layer-1" class="img-medium round" src="Train_Aina.png" alt="">
+                <img oncontextmenu="return false;" id="layer-2" class="img-medium round" src="TV_Overlay.png" alt="">
+                <img oncontextmenu="return false;" id="layer-3" class="img-medium round" src="Title_Aina-layer.png" alt="">
             </section>
             <!-- Dynamic Borders Screen Plugin -->
             <section class="subsection">
@@ -146,16 +146,16 @@
             <!-- Logo Development Gallery -->
             <section class="subsection">
                 <div class="captioned-image">
-                    <img id="original" class="img-large hoverable zoom-in" src="logos/original.png" 
+                    <img oncontextmenu="return false;" id="original" class="img-large hoverable zoom-in" src="logos/original.png" 
                         alt="The original logo" onclick="galleryImage('original'); selectSFX();">
                     <p class="standalone-text big-bottom">The original logo</p>
-                    <img id="concepts-1" class="img-large hoverable zoom-in" src="logos/concepts-1.png" 
+                    <img oncontextmenu="return false;" id="concepts-1" class="img-large hoverable zoom-in" src="logos/concepts-1.png" 
                         alt="First concepts. I was given a few requirements for the design, like a symbol that
                         represents the game (I chose the tulip)" onclick="galleryImage('concepts-1'); selectSFX();">
                     <p class="standalone-text big-bottom">First concepts. I was given a few requirements for the design, like a symbol that
                         represents the game (I chose the tulip).
                     </p>
-                    <img id="concepts-2" class="img-large hoverable zoom-in" src="logos/concepts-2.png" 
+                    <img oncontextmenu="return false;" id="concepts-2" class="img-large hoverable zoom-in" src="logos/concepts-2.png" 
                         alt="Here I experimented with a smoother style using SVGs, but DreamingCassette wasn't a fan of 
                         the look, so I went back to pixel art. We also settled on using a lavender palette instead
                         of the red." onclick="galleryImage('concepts-2'); selectSFX();">
@@ -163,11 +163,11 @@
                         a fan of the look, so I went back to pixel art. We also settled on using a lavender palette instead
                         of the red.
                     </p>
-                    <img id="final" class="img-large hoverable zoom-in" src="logos/final.png" 
+                    <img oncontextmenu="return false;" id="final" class="img-large hoverable zoom-in" src="logos/final.png" 
                         alt="After throwing around some more ideas, this is the final logo we settled on." 
                         onclick="galleryImage('final'); selectSFX();">
                     <p class="standalone-text big-bottom">After throwing around some more ideas, this is the final logo we settled on.</p>
-                    <img id="chapter-1" class="img-large hoverable zoom-in" src="logos/chapter-1.png"
+                    <img oncontextmenu="return false;" id="chapter-1" class="img-large hoverable zoom-in" src="logos/chapter-1.png"
                         alt="And, since she wanted unique subtitles for the chapters, this is what I came up
                         with for the first chapter, Nightmares of Life" onclick="galleryImage('chapter-1'); selectSFX();">
                     <p class="standalone-text">And, since she wanted unique subtitles for the chapters, this is what I came up
@@ -192,7 +192,7 @@
                 </div>
             </section>
             <section id="end-parent" class="explosive" data-counter="0">
-                <img id="end" class="display-img-large round" src="/img/Waking_Dreams-thumb.png" alt="Waking Dreams Thumb" 
+                <img oncontextmenu="return false;" id="end" class="display-img-large round" src="/img/Waking_Dreams-thumb.png" alt="Waking Dreams Thumb" 
                 onclick="clickExplosion('end-parent', 'end')">
             </section>
             <p class="caption">Warning! Don't click the images too much!</p>

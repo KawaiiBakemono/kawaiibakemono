@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Imports-->
 		<link rel="stylesheet" type="text/css" href="/css/default.css">
-		<link rel="stylesheet" type="text/css" href="/css/light-mode.css">
 		<!-- Scripts -->
 		<script src="/js/htmx.min.js"></script>
 		<script src="/js/effects.js" defer></script>
@@ -22,12 +21,12 @@
 		<title>Gallery - KawaiiBakemono</title>
 	</head>
 	<body>
-        <div id="moveable-background" style="background-image: url('/img/code.png'); opacity: 60%"></div>
+        <div id="moveable-background" style="background-image: url('/img/code.png');"></div>
         <div hx-get="/html/template-header.html" hx-trigger="load" defer></div>
 		<main class="wrapper">
             <h1 class="page-title neon-text">Project Gallery</h1>
             <a class="gallery-card" href="/gallery/waking-dreams/">
-                <img class="img-medium round" src="/img/Waking_Dreams-thumb.png" alt="thumbnail">
+                <img oncontextmenu="return false;" class="img-medium round" src="/img/Waking_Dreams-thumb.png" alt="thumbnail">
                 <div class="description-wrapper">
                     <div>
                         <span class="card-tag"><img class="tag-icon" src="/icons/game.svg" alt="icon">Game Dev</span>
@@ -61,7 +60,7 @@
                         decided.
                     </blockquote>
                 </div>
-                <img class="img-medium" src="/img/Voxilla-logo-thumbnail.png" alt="thumbnail">
+                <img oncontextmenu="return false;" class="img-medium" src="/img/Voxilla-logo-thumbnail.png" alt="thumbnail">
             </a>
             <div class="spacer"></div>
         </main>

@@ -12,6 +12,32 @@ function backgroundFollowMouse() {
 }
 backgroundFollowMouse();
 
+// Change Header based on what page you're on
+window.addEventListener("load", function () {
+    if (document.URL.includes("/home/")) {
+        highlightCurrentPageButton("home-button");
+        return;
+    }
+    else if (document.URL.includes("/waking-dreams/")) {
+        highlightCurrentPageButton("waking-dreams-button");
+        return;
+    }
+    else if (document.URL.includes("/gallery/")) {
+        highlightCurrentPageButton("gallery-button");
+        return;
+    }
+    else if (document.URL.includes("/about-me/")) {
+        highlightCurrentPageButton("about-button");
+        return;
+    }
+});
+
+function highlightCurrentPageButton(id) {
+    if (!document.getElementById(id).classList.contains('squombus-button-active')) {
+        document.getElementById(id).classList.add("squombus-button-active");
+    }
+}
+
 
 // ======== Clickable Aina ========
 
